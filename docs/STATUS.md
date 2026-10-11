@@ -7,6 +7,11 @@
 
 ## 1. Selesai (Completed - Fase 1)
 - [x] Inisialisasi proyek: Vite, React 19, TypeScript, Tailwind CSS v4, Git repository (`main`).
+- [x] Analisis mendalam situs referensi https://www.squaredash.com/ (ekstraksi token CSS/JS, 9 prinsip premium, screenshot 1440px & 390px) tercatat di [`docs/REFERENCE-ANALYSIS.md`](file:///home/arfiandastr/Documents/work/cdc-upb/docs/REFERENCE-ANALYSIS.md).
+- [x] Pembangunan dua varian Hero CDC berdasarkan prinsip referensi tanpa AI-gimmick/social-proof palsu:
+  - **Varian A (`/hero-a`)**: Clean White Focus (Headline 68px, single input pill terintegrasi, live job radar console fungsional ber-badge).
+  - **Varian B (`/hero-b`)**: Deep Navy Prestige (Headline 66px editorial serif-italic, primary magnetic action, live tracer analytics console fungsional ber-badge).
+- [x] Verifikasi tangkapan layar kedua varian di desktop (1440px) dan mobile (390px) pada folder [`screenshots/variants/`](file:///home/arfiandastr/Documents/work/cdc-upb/screenshots/variants/).
 - [x] Tipografi & Desain: Self-hosted `@fontsource/instrument-serif` (Display Headline) & `@fontsource/geist-sans` (Body & Interface UI), palet Navy 950/900/700, Biru Aksen #2F6BFF, Kertas #F7F8FB, dan Teks Tinta #0F172A.
 - [x] Lapisan Abstraksi Data:
   - Definisi tipe TypeScript di [`src/types/database.ts`](file:///home/arfiandastr/Documents/work/cdc-upb/src/types/database.ts) sesuai model data skema PRD tabel `cdc_*`.
