@@ -4,7 +4,6 @@ import { MagneticButton } from '../ui/MagneticButton';
 import { siteConfig } from '../../config/site';
 
 export const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -19,9 +18,6 @@ export const Navbar: React.FC = () => {
       if (docHeight > 0) {
         setScrollProgress((currentScrollY / docHeight) * 100);
       }
-
-      // Deteksi scrolled melewati hero
-      setIsScrolled(currentScrollY > 60);
 
       // Smart hide / show
       if (currentScrollY > 150) {
@@ -56,41 +52,37 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Scroll Progress Bar tipis 1.5px di puncak viewport */}
+      {/* Scroll Progress Bar tipis 2px di puncak viewport dengan aksen navy */}
       <div
-        className="fixed top-0 left-0 right-0 h-[2px] bg-blue-500/20 z-50 pointer-events-none"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-slate-200 z-50 pointer-events-none"
         aria-hidden="true"
       >
         <div
-          className="h-full bg-[#2F6BFF] transition-all duration-75 ease-out"
+          className="h-full bg-navy-950 transition-all duration-75 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_15px_rgba(4,11,31,0.03)] py-3.5 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
-        } ${
-          isScrolled
-            ? 'bg-navy-950/85 backdrop-blur-md border-b border-white/10 py-3 shadow-[0_10px_30px_-10px_rgba(2,8,26,0.6)]'
-            : 'bg-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo & Brand Identity */}
+            {/* Logo & Brand Identity dengan Aksen Biru Dongker */}
             <a
               href="/"
-              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-md"
+              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 rounded-md"
             >
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#2F6BFF] to-navy-900 border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(47,107,255,0.3)]">
+              <div className="w-9 h-9 rounded-lg bg-navy-950 border border-navy-900 flex items-center justify-center shadow-xs">
                 <span className="font-serif italic font-bold text-lg text-white">C</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-serif text-lg tracking-tight text-white font-bold group-hover:text-blue-300 transition-colors">
+                <span className="font-serif text-lg tracking-tight text-navy-950 font-bold group-hover:text-blue-700 transition-colors">
                   CDC Pelita Bangsa
                 </span>
-                <span className="text-[10px] uppercase font-mono tracking-[0.16em] text-slate-400">
+                <span className="text-[10px] uppercase font-mono tracking-[0.16em] text-slate-500">
                   Career Development Center
                 </span>
               </div>
@@ -102,7 +94,7 @@ export const Navbar: React.FC = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="relative text-sm text-slate-300 hover:text-white transition-colors duration-200 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#2F6BFF] hover:after:w-full after:transition-all after:duration-300"
+                  className="relative text-sm font-medium text-slate-600 hover:text-navy-950 transition-colors duration-200 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-navy-950 hover:after:w-full after:transition-all after:duration-300"
                 >
                   {link.label}
                 </a>
@@ -113,7 +105,7 @@ export const Navbar: React.FC = () => {
             <div className="hidden md:flex items-center gap-3">
               <a
                 href="#tracer-study"
-                className="text-xs font-semibold tracking-wider uppercase text-slate-300 hover:text-white px-3 py-2 transition-colors"
+                className="text-xs font-semibold tracking-wider uppercase text-slate-600 hover:text-navy-950 px-3 py-2 transition-colors"
               >
                 Tracer Study
               </a>
@@ -131,7 +123,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+              className="md:hidden p-2 rounded-lg text-slate-700 hover:text-navy-950 hover:bg-slate-100 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950"
               aria-label={mobileMenuOpen ? 'Tutup navigasi' : 'Buka navigasi'}
               aria-expanded={mobileMenuOpen}
             >
@@ -142,23 +134,23 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Dropdown Panel */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-navy-950/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 animate-in slide-in-from-top-4 duration-200">
+          <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 animate-in slide-in-from-top-4 duration-200 shadow-lg">
             <nav className="flex flex-col gap-3">
               {siteConfig.navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base text-slate-200 hover:text-white py-2 px-3 rounded-md hover:bg-white/5 transition-colors"
+                  className="text-base text-slate-700 hover:text-navy-950 py-2 px-3 rounded-md hover:bg-slate-50 transition-colors font-medium"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="pt-4 border-t border-white/10 flex flex-col gap-2">
+              <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
                 <a
                   href="#tracer-study"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-center py-2.5 text-sm font-medium text-slate-300 hover:text-white rounded-lg bg-white/5"
+                  className="text-center py-2.5 text-sm font-medium text-slate-700 hover:text-navy-950 rounded-lg bg-slate-100"
                 >
                   Isi Tracer Study
                 </a>

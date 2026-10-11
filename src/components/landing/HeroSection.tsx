@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
-import { Search, MapPin, Briefcase, ArrowUpRight } from 'lucide-react';
+import { Search, MapPin, ArrowUpRight, ArrowRight, ShieldCheck, Building2, CheckCircle2 } from 'lucide-react';
 import { MagneticButton } from '../ui/MagneticButton';
-import { PlaceholderImage } from '../ui/PlaceholderImage';
+import { DummyBadge } from '../ui/DummyBadge';
+import { mockJobs } from '../../data/mockJobs';
 
 interface HeroSectionProps {
   onSearch?: (query: string, lokasi: string) => void;
@@ -13,15 +14,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
   const headlineRef = useRef<HTMLDivElement | null>(null);
   const searchRef = useRef<HTMLFormElement | null>(null);
 
-  const [keyword, setKeyword] = React.useState('');
-  const [lokasi, setLokasi] = React.useState('');
+  const [keyword, setKeyword] = useState('');
+  const [activeCategory, setActiveCategory] = useState<'Semua' | 'Manufaktur' | 'IT' | 'Keuangan'>('Semua');
+  const [selectedJobId, setSelectedJobId] = useState('job-001');
+
+  // Filter lowongan untuk konsol radar fungsional di sisi kanan
+  const filteredJobs = mockJobs.filter((j) => {
+    const matchesSearch =
+      keyword === '' ||
+      j.judul.toLowerCase().includes(keyword.toLowerCase()) ||
+      j.company_name.toLowerCase().includes(keyword.toLowerCase());
+
+    if (!matchesSearch) return false;
+    if (activeCategory === 'Semua') return true;
+    if (activeCategory === 'Manufaktur') return j.bidang.includes('Manufaktur') || j.bidang.includes('Otomasi');
+    if (activeCategory === 'IT') return j.bidang.includes('Teknologi') || j.bidang.includes('IoT');
+    if (activeCategory === 'Keuangan') return j.bidang.includes('Perbankan') || j.bidang.includes('Data');
+    return true;
+  });
+
+  const currentJob = mockJobs.find((j) => j.id === selectedJobId) || filteredJobs[0] || mockJobs[0];
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Reveal headline per baris dengan masking translateY 110% -> 0%
+      // Reveal headline per baris dengan masking translateY
       const lines = headlineRef.current?.querySelectorAll('.hero-line');
       if (lines && lines.length > 0) {
         gsap.fromTo(
@@ -38,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
         );
       }
 
-      // Reveal subteks dan badges
+      // Reveal subteks dan elemen hero lainnya
       gsap.fromTo(
         '.hero-fade-in',
         { y: 24, opacity: 0 },
@@ -52,11 +71,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
         }
       );
 
-      // Search capsule scale & entrance
+      // Search capsule entrance
       if (searchRef.current) {
         gsap.fromTo(
           searchRef.current,
-          { scale: 0.96, opacity: 0, y: 30 },
+          { scale: 0.96, opacity: 0, y: 20 },
           {
             scale: 1,
             opacity: 1,
@@ -75,7 +94,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (onSearch) {
-      onSearch(keyword, lokasi);
+      onSearch(keyword, '');
     }
     const target = document.querySelector('#lowongan');
     if (target) {
@@ -87,25 +106,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
     <section
       ref={containerRef}
       id="beranda"
-      className="relative min-h-screen pt-32 pb-24 flex flex-col justify-center bg-navy-950 text-white overflow-hidden"
+      className="relative min-h-screen pt-36 pb-24 flex flex-col justify-center bg-white text-slate-900 overflow-hidden border-b border-slate-200/80"
     >
-      {/* Background radial glow halus & noise grain */}
-      <div className="absolute inset-0 bg-grain opacity-40 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-600/12 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[300px] bg-blue-400/8 rounded-full blur-[120px] pointer-events-none" />
+      {/* Background ambient lighting halus & noise grain 2% */}
+      <div className="absolute inset-0 bg-grain pointer-events-none" />
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-50/70 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[450px] h-[350px] bg-slate-100/60 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Asymmetric 12-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Kolom Teks Kiri (7 Kolom) */}
-          <div className="lg:col-span-7 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          {/* Kolom Teks Kiri (6 Kolom) */}
+          <div className="lg:col-span-6 space-y-7">
             {/* Tag Badge Institusi */}
-            <div className="hero-fade-in flex items-center gap-3">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase bg-white/10 text-blue-300 border border-white/15">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#2F6BFF]" />
+            <div className="hero-fade-in flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium tracking-wider uppercase bg-slate-50 text-navy-950 border border-slate-200 shadow-2xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-navy-950 animate-pulse" />
                 Pusat Karier & Tracer Study Resmi
               </span>
-              <span className="text-xs text-slate-400 font-mono tracking-wider uppercase">
+              <span className="text-xs text-slate-500 font-mono tracking-wider uppercase">
                 Universitas Pelita Bangsa
               </span>
             </div>
@@ -113,33 +132,66 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
             {/* Headline Display Besar dengan Masking Per Baris */}
             <div ref={headlineRef} className="space-y-1">
               <div className="overflow-hidden py-1">
-                <h1 className="hero-line font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
+                <h1 className="hero-line font-serif text-4xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-navy-950 leading-[1.02]">
                   Langkah Awal Menuju
                 </h1>
               </div>
               <div className="overflow-hidden py-1">
-                <h1 className="hero-line font-serif italic text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-blue-300 leading-[1.05]">
+                <h1 className="hero-line font-serif italic text-4xl sm:text-6xl lg:text-[70px] font-bold tracking-tight text-navy-900 leading-[1.02]">
                   Karier Berkelas Dunia
                 </h1>
               </div>
               <div className="overflow-hidden py-1">
-                <h1 className="hero-line font-sans text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-200 leading-[1.15] pt-2">
+                <h2 className="hero-line font-sans text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-slate-800 leading-[1.15] pt-2">
                   di Episentrum Industri Cikarang
-                </h1>
+                </h2>
               </div>
             </div>
 
             {/* Narasi Subteks Editorial */}
-            <p className="hero-fade-in text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed font-sans">
-              Menghubungkan mahasiswa dan alumni Universitas Pelita Bangsa langsung dengan ratusan
-              perusahaan terverifikasi di kawasan industri terpadu. Dilengkapi pelacakan tracer
-              study berkala untuk jaminan mutu kurikulum.
+            <p className="hero-fade-in text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed font-sans">
+              Menghubungkan mahasiswa dan alumni Universitas Pelita Bangsa langsung dengan mitra
+              industri terverifikasi di kawasan Jababeka, MM2100, EJIP, dan GIIC. Dilengkapi pelacakan
+              tracer study berkala untuk jaminan mutu kurikulum.
             </p>
 
-            {/* Quick Action Buttons */}
-            <div className="hero-fade-in flex flex-wrap items-center gap-4 pt-2">
+            {/* Single Capsule Search Pill (SquareDash Reference Principle) */}
+            <div className="hero-fade-in pt-2 max-w-lg space-y-3">
+              <form
+                ref={searchRef}
+                onSubmit={handleSearchSubmit}
+                className="relative flex items-center shadow-xs"
+              >
+                <div className="absolute left-4.5 text-slate-400">
+                  <Search className="w-5 h-5 text-slate-400" />
+                </div>
+                <input
+                  type="text"
+                  value={keyword}
+                  onChange={(e) => setKeyword(e.target.value)}
+                  placeholder="Ketik posisi atau perusahaan impian..."
+                  className="w-full h-14 pl-12 pr-14 rounded-full bg-[#F3F4F6] border border-slate-200 text-sm font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-navy-950 focus:bg-white transition-all shadow-inner"
+                />
+                <button
+                  type="submit"
+                  aria-label="Cari lowongan"
+                  className="absolute right-2 w-10 h-10 rounded-full bg-navy-950 hover:bg-navy-900 text-white flex items-center justify-center transition-transform hover:scale-105 active:scale-95 shadow-sm"
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </form>
+
+              {/* Micro-Trust Line */}
+              <div className="flex items-center gap-2 text-xs text-slate-500 pl-2">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                <span>Khusus mahasiswa & alumni UPB · Validasi resmi CDC · Tanpa biaya</span>
+              </div>
+            </div>
+
+            {/* Quick Action Navigation Buttons */}
+            <div className="hero-fade-in flex flex-wrap items-center gap-4 pt-1">
               <MagneticButton
-                size="lg"
+                size="md"
                 variant="primary"
                 href="#lowongan"
               >
@@ -148,105 +200,120 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onSearch }) => {
               </MagneticButton>
 
               <MagneticButton
-                size="lg"
+                size="md"
                 variant="secondary"
                 href="#tracer-study"
               >
-                <span>Isi Tracer Study</span>
+                <span>Tracer Study Lulusan</span>
               </MagneticButton>
             </div>
           </div>
 
-          {/* Kolom Visual Kanan (5 Kolom): Slot Foto Arsitektural */}
-          <div className="lg:col-span-5 hero-fade-in">
-            <div className="relative">
-              {/* Frame decorative hairline offset */}
-              <div className="absolute -inset-2 rounded-2xl border border-white/10 -z-10 translate-x-3 translate-y-3 hidden sm:block" />
-              
-              <PlaceholderImage
-                aspectRatio="portrait"
-                caption="Gedung Kampus & Ruang Konseling Career Development Center Universitas Pelita Bangsa"
-                badgeText="GANTI DENGAN FOTO ASLI UPB"
-                className="shadow-[0_20px_50px_rgba(2,8,26,0.8)]"
-              />
+          {/* Kolom Visual Fungsional Kanan (6 Kolom): Radar Lowongan Aktif */}
+          <div className="lg:col-span-6 hero-fade-in relative">
+            <div className="relative rounded-[28px] bg-gradient-to-br from-[#F8FAFC] to-[#F1F5F9] border border-slate-200 p-6 sm:p-8 shadow-[0_20px_50px_rgba(4,11,31,0.06)] overflow-hidden">
+              {/* Header Konsol Visual */}
+              <div className="flex items-center justify-between pb-5 border-b border-slate-200/80">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-navy-950 text-white flex items-center justify-center font-bold text-xs shadow-xs">
+                    CDC
+                  </div>
+                  <div>
+                    <span className="text-xs font-semibold text-navy-950 block">
+                      Radar Lowongan Aktif
+                    </span>
+                    <span className="text-[10px] font-mono text-slate-500">
+                      Sinkronisasi Terkurasi UPB
+                    </span>
+                  </div>
+                </div>
 
-              {/* Float Mini Badge: Kawasan Industri */}
-              <div className="absolute -bottom-5 -left-5 p-4 rounded-xl bg-navy-900/90 backdrop-blur-md border border-white/15 shadow-xl max-w-xs hidden sm:flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center shrink-0">
-                  <Briefcase className="w-5 h-5 text-blue-400" />
-                </div>
-                <div>
-                  <span className="text-xs font-semibold text-white block">
-                    Akses Langsung Mitra
+                <DummyBadge label="Data contoh lowongan" />
+              </div>
+
+              {/* Filter Kategori Mini Fungsional */}
+              <div className="py-4 flex flex-wrap gap-1.5">
+                {(['Semua', 'Manufaktur', 'IT', 'Keuangan'] as const).map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      activeCategory === cat
+                        ? 'bg-navy-950 text-white shadow-xs'
+                        : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              {/* Daftar Interaktif Mini */}
+              <div className="space-y-2.5 max-h-[260px] overflow-y-auto pr-1">
+                {filteredJobs.slice(0, 3).map((job) => {
+                  const isSelected = job.id === currentJob.id;
+                  return (
+                    <div
+                      key={job.id}
+                      onClick={() => setSelectedJobId(job.id)}
+                      className={`p-3.5 rounded-2xl cursor-pointer transition-all border ${
+                        isSelected
+                          ? 'bg-white border-navy-950/40 shadow-sm'
+                          : 'bg-white/70 border-slate-200/80 hover:bg-white hover:border-slate-300'
+                      }`}
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 sm:gap-3">
+                        <div className="space-y-1">
+                          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                            <span className="text-xs font-bold text-navy-950">
+                              {job.judul}
+                            </span>
+                            <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-blue-50 text-blue-700 border border-blue-200">
+                              {job.tipe}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-slate-500">
+                            <Building2 className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                            <span>{job.company_name}</span>
+                            <span>·</span>
+                            <MapPin className="w-3 h-3 text-slate-400 shrink-0" />
+                            <span>{job.lokasi}</span>
+                          </div>
+                        </div>
+
+                        <div className="text-left sm:text-right shrink-0 pt-1 sm:pt-0">
+                          <span className="text-xs font-bold text-navy-950 block">
+                            {job.gaji_display || 'Kompetitif'}
+                          </span>
+                          <span className="text-[10px] text-slate-500 font-mono hidden sm:block">
+                            {job.lokasi}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Panel Detail Terpilih */}
+              <div className="mt-4 pt-4 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-600">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  <span>
+                    Mitra Terverifikasi: <strong className="text-navy-950">{currentJob.company_name}</strong>
                   </span>
-                  <span className="text-[11px] text-slate-400 block font-mono">
-                    MM2100 · Jababeka · EJIP · GIIC
-                  </span>
                 </div>
+                <a
+                  href="#lowongan"
+                  className="inline-flex items-center gap-1 font-semibold text-navy-950 hover:underline"
+                >
+                  <span>Lihat Detail</span>
+                  <ArrowRight className="w-3 h-3" />
+                </a>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Composite Search Capsule (Floating Bar di Bawah Grid) */}
-        <div className="mt-16">
-          <form
-            ref={searchRef}
-            onSubmit={handleSearchSubmit}
-            className="p-3 sm:p-4 rounded-2xl sm:rounded-full bg-white/95 text-slate-900 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.5)] border border-white/20 backdrop-blur-md"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
-              {/* Input 1: Kata Kunci (5 Cols) */}
-              <div className="sm:col-span-5 flex items-center gap-3 px-3">
-                <Search className="w-5 h-5 text-blue-600 shrink-0" />
-                <div className="w-full">
-                  <label htmlFor="search-keyword" className="block text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-500">
-                    Posisi atau Perusahaan
-                  </label>
-                  <input
-                    id="search-keyword"
-                    type="text"
-                    value={keyword}
-                    onChange={(e) => setKeyword(e.target.value)}
-                    placeholder="Contoh: Supply Chain, Automation, QC"
-                    className="w-full bg-transparent text-sm font-sans font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              {/* Divider vertikal desktop */}
-              <div className="hidden sm:block sm:col-span-1 h-8 border-r border-slate-200" />
-
-              {/* Input 2: Kawasan / Lokasi (3 Cols) */}
-              <div className="sm:col-span-3 flex items-center gap-3 px-3">
-                <MapPin className="w-5 h-5 text-blue-600 shrink-0" />
-                <div className="w-full">
-                  <label htmlFor="search-lokasi" className="block text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-500">
-                    Kawasan Kerja
-                  </label>
-                  <input
-                    id="search-lokasi"
-                    type="text"
-                    value={lokasi}
-                    onChange={(e) => setLokasi(e.target.value)}
-                    placeholder="Semua Kawasan Cikarang"
-                    className="w-full bg-transparent text-sm font-sans font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              {/* Tombol Aksi Submit (3 Cols) */}
-              <div className="sm:col-span-3 flex justify-end">
-                <button
-                  type="submit"
-                  className="w-full sm:w-auto px-7 py-3 rounded-full bg-[#2F6BFF] hover:bg-blue-600 text-white font-medium text-sm flex items-center justify-center gap-2 shadow-[0_4px_15px_rgba(47,107,255,0.4)] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                >
-                  <Search className="w-4 h-4" />
-                  <span>Cari Posisi</span>
-                </button>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
     </section>

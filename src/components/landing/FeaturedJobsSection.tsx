@@ -62,14 +62,14 @@ export const FeaturedJobsSection: React.FC = () => {
     <section
       ref={containerRef}
       id="lowongan"
-      className="relative py-28 bg-[#F7F8FB] text-navy-950 overflow-hidden"
+      className="relative py-28 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header Asymmetric Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-navy-950/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200/80">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-3">
-              <SectionTag number="01" label="Peluang Karier Unggulan" light />
+              <SectionTag number="01" label="Peluang Karier Unggulan" />
               <DummyBadge label="Data contoh lowongan" />
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-navy-950 leading-tight">
@@ -103,9 +103,9 @@ export const FeaturedJobsSection: React.FC = () => {
               key={bidang}
               type="button"
               onClick={() => setSelectedBidang(bidang)}
-              className={`px-4 py-2 rounded-full text-xs font-medium font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 ${
+              className={`px-4 py-2 rounded-full text-xs font-medium font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 ${
                 selectedBidang === bidang
-                  ? 'bg-navy-950 text-white shadow-sm'
+                  ? 'bg-navy-950 text-white shadow-xs'
                   : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-400'
               }`}
             >
@@ -192,7 +192,7 @@ export const FeaturedJobsSection: React.FC = () => {
                         href={featuredJob.tautan_lamaran}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-[#2F6BFF] hover:bg-blue-600 transition-colors inline-flex items-center gap-1.5 shadow-sm"
+                        className="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-navy-950 hover:bg-navy-900 transition-colors inline-flex items-center gap-1.5 shadow-xs"
                       >
                         <span>Lamar Posisi</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -334,7 +334,7 @@ export const FeaturedJobsSection: React.FC = () => {
                   href={selectedJobForModal.tautan_lamaran}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-[#2F6BFF] hover:bg-blue-600 transition-colors inline-flex items-center gap-1.5 shadow-sm"
+                  className="px-6 py-2.5 rounded-full text-xs font-semibold text-white bg-navy-950 hover:bg-navy-900 transition-colors inline-flex items-center gap-1.5 shadow-xs"
                 >
                   <span>Kirim Berkas Lamaran</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

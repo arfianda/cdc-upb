@@ -12,7 +12,7 @@ import { Footer } from '../components/layout/Footer';
 
 export const LandingPage: React.FC = () => {
   return (
-    <div className="relative min-h-screen bg-navy-950 font-sans selection:bg-[#2F6BFF] selection:text-white">
+    <div className="relative min-h-screen bg-white text-slate-900 font-sans selection:bg-navy-950 selection:text-white">
       {/* Header & Navigasi */}
       <Navbar />
 

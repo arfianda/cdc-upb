@@ -20,10 +20,10 @@ export const DummyBadge: React.FC<DummyBadgeProps> = ({
 
   return (
     <span
-      className={`inline-flex items-center gap-1 text-[10px] tracking-wider uppercase font-mono px-1.5 py-0.5 rounded-sm bg-amber-500/15 text-amber-300 border border-amber-500/25 select-none ${className}`}
+      className={`inline-flex items-center gap-1.5 text-[10px] tracking-wider uppercase font-mono px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-amber-300/80 font-medium select-none shadow-xs ${className}`}
       title="Data ini merupakan contoh ilustratif dan akan diganti dengan data resmi kampus"
     >
-      <span className="w-1 h-1 rounded-full bg-amber-400 animate-pulse" />
+      <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
       {label}
     </span>
   );

@@ -91,9 +91,9 @@ export const ImpactStatsBand: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 bg-navy-950 text-white overflow-hidden border-y border-white/10"
+      className="relative py-24 bg-[#F8FAFC] text-slate-900 overflow-hidden border-y border-slate-200/80"
     >
-      <div className="absolute inset-0 bg-grain opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 bg-grain pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Band */}
@@ -102,7 +102,7 @@ export const ImpactStatsBand: React.FC = () => {
             <SectionTag number="02" label="Kinerja & Dampak Institusional" />
             <DummyBadge label="Data contoh metrik" />
           </div>
-          <span className="text-xs font-mono text-slate-400 uppercase tracking-widest">
+          <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">
             Audit Mutu & Tracer Study Lulusan UPB 2024
           </span>
         </div>
@@ -110,8 +110,8 @@ export const ImpactStatsBand: React.FC = () => {
         {/* 4 Metrics Grid dengan Garis Hairline Arsitektural */}
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
           {/* Hairline Divider Horizontal di Desktop */}
-          <div className="stat-hairline-h absolute top-0 left-0 right-0 h-[1px] bg-white/10 origin-left hidden lg:block" />
-          <div className="stat-hairline-h absolute bottom-0 left-0 right-0 h-[1px] bg-white/10 origin-left hidden lg:block" />
+          <div className="stat-hairline-h absolute top-0 left-0 right-0 h-[1px] bg-slate-200/90 origin-left hidden lg:block" />
+          <div className="stat-hairline-h absolute bottom-0 left-0 right-0 h-[1px] bg-slate-200/90 origin-left hidden lg:block" />
 
           {impactMetrics.map((item, index) => {
             const displayVal =
@@ -123,33 +123,33 @@ export const ImpactStatsBand: React.FC = () => {
               <div
                 key={item.id}
                 className={`relative lg:px-8 py-8 flex flex-col justify-between space-y-6 ${
-                  index !== 0 ? 'lg:border-l lg:border-white/10' : ''
+                  index !== 0 ? 'lg:border-l lg:border-slate-200/70' : ''
                 }`}
               >
                 {/* Hairline Vertikal Animasi */}
                 {index !== 0 && (
-                  <div className="stat-hairline-v absolute top-0 bottom-0 left-0 w-[1px] bg-white/10 origin-top hidden lg:block" />
+                  <div className="stat-hairline-v absolute top-0 bottom-0 left-0 w-[1px] bg-slate-200/90 origin-top hidden lg:block" />
                 )}
 
                 <div className="space-y-2">
-                  <span className="text-xs font-mono font-medium uppercase tracking-[0.15em] text-blue-300 block">
+                  <span className="text-xs font-mono font-medium uppercase tracking-[0.15em] text-blue-700 block">
                     0{index + 1} / METRIK
                   </span>
                   <div className="flex items-baseline gap-1">
-                    <span className="font-serif text-5xl sm:text-6xl font-bold tracking-tight text-white tabular-nums">
+                    <span className="font-serif text-5xl sm:text-6xl font-bold tracking-tight text-navy-950 tabular-nums">
                       {displayVal}
                     </span>
-                    <span className="font-serif italic text-3xl sm:text-4xl text-blue-400 font-bold">
+                    <span className="font-serif italic text-3xl sm:text-4xl text-blue-700 font-bold">
                       {item.unit}
                     </span>
                   </div>
                 </div>
 
-                <div className="space-y-1.5 pt-4 border-t border-white/5">
-                  <h4 className="text-sm font-semibold text-slate-200 font-sans">
+                <div className="space-y-1.5 pt-4 border-t border-slate-200/60">
+                  <h4 className="text-sm font-semibold text-slate-900 font-sans">
                     {item.label}
                   </h4>
-                  <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                  <p className="text-xs text-slate-500 leading-relaxed font-sans">
                     {item.keterangan}
                   </p>
                 </div>

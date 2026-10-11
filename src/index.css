@@ -15,7 +15,7 @@
   --color-navy-700: #0b1f4b;
   --color-blue-accent: #2f6bff;
   --color-blue-light: #bfd4ff;
-  --color-paper: #f7f8fb;
+  --color-paper: #f8fafc;
   --color-ink: #0f172a;
   --color-slate-subtle: #64748b;
   
@@ -29,11 +29,11 @@
   color-scheme: light;
 }
 
-/* Base resets & typography */
+/* Base resets & typography: DOMINAN PUTIH */
 html {
   font-family: var(--font-body);
   scroll-behavior: auto; /* Dikelola penuh oleh Lenis */
-  background-color: #040b1f;
+  background-color: #ffffff;
   color: #0f172a;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -44,12 +44,13 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #040b1f;
+  background-color: #ffffff;
+  color: #0f172a;
 }
 
-/* Grain texture overlay yang sangat halus (3.5% opacity) */
+/* Grain texture overlay yang sangat halus (2% opacity pada kanvas terang) */
 .bg-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
 }
 
 /* Tabular figures untuk angka statistik presisi */
@@ -59,16 +60,11 @@ body {
 
 /* Hairline utilities */
 .hairline-light {
-  border-color: rgba(255, 255, 255, 0.10);
+  border-color: rgba(11, 31, 75, 0.10);
 }
 
 .hairline-dark {
-  border-color: rgba(11, 31, 75, 0.12);
-}
-
-/* Duotone image filter khas luxury editorial navy */
-.filter-duotone-navy {
-  filter: contrast(110%) brightness(95%) grayscale(25%);
+  border-color: rgba(11, 31, 75, 0.15);
 }
 
 /* Lenis smooth scroll recommended CSS */
@@ -92,15 +88,15 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Selection highlight elegan */
+/* Selection highlight dengan aksen biru dongker */
 ::selection {
-  background-color: #2f6bff;
+  background-color: #040b1f;
   color: #ffffff;
 }
 
 /* Focus styles terarah untuk aksesibilitas WCAG AA (R-32) */
 :focus-visible {
-  outline: 2px solid #2f6bff;
+  outline: 2px solid #040b1f;
   outline-offset: 3px;
 }
 

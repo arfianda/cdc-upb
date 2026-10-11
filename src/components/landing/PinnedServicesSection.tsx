@@ -27,7 +27,7 @@ const servicesData: ServiceItem[] = [
       'Integrasi kualifikasi prodi Teknik, Ekonomi, & Hukum',
       'Informasi rentang kompensasi dan fasilitas kerja transparan',
     ],
-    icon: <Briefcase className="w-6 h-6 text-blue-400" />,
+    icon: <Briefcase className="w-6 h-6 text-navy-950" />,
   },
   {
     id: 'service-2',
@@ -41,7 +41,7 @@ const servicesData: ServiceItem[] = [
       'Dashboard statistik publik aman privasi (UU PDP)',
       'Laporan evaluasi transisi studi ke dunia kerja per angkatan',
     ],
-    icon: <BarChart3 className="w-6 h-6 text-blue-400" />,
+    icon: <BarChart3 className="w-6 h-6 text-navy-950" />,
   },
   {
     id: 'service-3',
@@ -55,7 +55,7 @@ const servicesData: ServiceItem[] = [
       'Peluang bimbingan karier bagi mahasiswa tingkat akhir',
       'Koneksi strategis alumni di kawasan Jabodetabek',
     ],
-    icon: <Users className="w-6 h-6 text-blue-400" />,
+    icon: <Users className="w-6 h-6 text-navy-950" />,
   },
   {
     id: 'service-4',
@@ -69,7 +69,7 @@ const servicesData: ServiceItem[] = [
       'Simulasi wawancara kerja berbasis kompetensi nyata',
       'Jadwal rutin agenda rekrutmen langsung di kampus',
     ],
-    icon: <GraduationCap className="w-6 h-6 text-blue-400" />,
+    icon: <GraduationCap className="w-6 h-6 text-navy-950" />,
   },
 ];
 
@@ -157,9 +157,9 @@ export const PinnedServicesSection: React.FC = () => {
     <section
       ref={containerRef}
       id="layanan"
-      className="relative bg-navy-950 text-white border-b border-white/10"
+      className="relative bg-[#F8FAFC] text-slate-900 border-b border-slate-200/80"
     >
-      <div className="absolute inset-0 bg-grain opacity-25 pointer-events-none" />
+      <div className="absolute inset-0 bg-grain pointer-events-none" />
 
       {/* DESKTOP VIEW (PINNED SCRUB) */}
       <div className="hidden lg:flex min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 items-center">
@@ -168,31 +168,31 @@ export const PinnedServicesSection: React.FC = () => {
           <div className="col-span-5 space-y-8 pr-6">
             <div className="space-y-3">
               <SectionTag number="03" label="Ekosistem Layanan" />
-              <h2 className="font-serif text-4xl xl:text-5xl font-bold tracking-tight text-white leading-tight">
+              <h2 className="font-serif text-4xl xl:text-5xl font-bold tracking-tight text-navy-950 leading-tight">
                 Empat Pilar Pengembangan Karier
               </h2>
-              <p className="text-sm text-slate-300 leading-relaxed font-sans">
+              <p className="text-sm text-slate-600 leading-relaxed font-sans">
                 Dirancang khusus untuk mendukung siklus transisi mahasiswa tingkat akhir dan alumni
                 menuju dunia industri profesional terkemuka.
               </p>
             </div>
 
             {/* Stepper Indikator Navigasi */}
-            <div className="space-y-4 pt-4 border-t border-white/10">
+            <div className="space-y-3 pt-4 border-t border-slate-200/80">
               {servicesData.map((service, idx) => (
                 <div
                   key={service.id}
                   className={`flex items-center gap-4 p-3 rounded-xl transition-all duration-300 ${
                     activeStep === idx
-                      ? 'bg-white/10 border border-white/20 text-white'
-                      : 'text-slate-500 hover:text-slate-300'
+                      ? 'bg-white border-2 border-navy-950 text-navy-950 shadow-xs'
+                      : 'text-slate-500 hover:text-slate-800'
                   }`}
                 >
                   <span
-                    className={`font-mono text-xs font-bold px-2 py-1 rounded ${
+                    className={`font-mono text-xs font-bold px-2.5 py-1 rounded-md transition-colors ${
                       activeStep === idx
-                        ? 'bg-[#2F6BFF] text-white'
-                        : 'bg-white/5 text-slate-400'
+                        ? 'bg-navy-950 text-white'
+                        : 'bg-slate-200/80 text-slate-600'
                     }`}
                   >
                     {service.number}
@@ -206,48 +206,48 @@ export const PinnedServicesSection: React.FC = () => {
           {/* Sisi Kanan Panel Berganti (7 Cols) */}
           <div
             ref={panelsContainerRef}
-            className="col-span-7 relative h-[520px] rounded-3xl bg-navy-900 border border-white/10 p-10 overflow-hidden shadow-[0_25px_60px_rgba(2,8,26,0.8)]"
+            className="col-span-7 relative h-[520px] rounded-3xl bg-white border border-slate-200/90 p-10 overflow-hidden shadow-[0_20px_50px_rgba(4,11,31,0.06)]"
           >
             {servicesData.map((service, idx) => (
               <div
                 key={service.id}
-                className="service-panel-item absolute inset-0 p-10 flex flex-col justify-between bg-navy-900"
+                className="service-panel-item absolute inset-0 p-10 flex flex-col justify-between bg-white"
                 style={{ zIndex: idx + 1 }}
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <div className="w-14 h-14 rounded-2xl bg-blue-500/15 border border-blue-400/30 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center">
                       {service.icon}
                     </div>
-                    <span className="font-serif italic text-3xl font-bold text-slate-600">
+                    <span className="font-serif italic text-4xl font-bold text-slate-200">
                       {service.number}
                     </span>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="text-xs font-mono uppercase tracking-widest text-blue-300">
+                    <span className="text-xs font-mono uppercase tracking-widest text-blue-700 font-semibold">
                       {service.subtitle}
                     </span>
-                    <h3 className="font-serif text-3xl font-bold text-white">
+                    <h3 className="font-serif text-3xl font-bold text-navy-950">
                       {service.title}
                     </h3>
                   </div>
 
-                  <p className="text-sm text-slate-300 leading-relaxed font-sans">
+                  <p className="text-sm text-slate-600 leading-relaxed font-sans">
                     {service.description}
                   </p>
 
-                  <div className="pt-4 border-t border-white/10 space-y-2.5">
+                  <div className="pt-4 border-t border-slate-100 space-y-2.5">
                     {service.features.map((feature, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-2.5 text-xs text-slate-200">
-                        <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                      <div key={fIdx} className="flex items-center gap-2.5 text-xs text-slate-700">
+                        <CheckCircle2 className="w-4 h-4 text-blue-700 shrink-0" />
                         <span>{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 flex items-center justify-between text-xs text-slate-400 font-mono">
+                <div className="pt-6 flex items-center justify-between text-xs text-slate-400 font-mono border-t border-slate-100">
                   <span>Universitas Pelita Bangsa</span>
                   <span>Pilar Layanan {service.number} dari 04</span>
                 </div>
@@ -261,10 +261,10 @@ export const PinnedServicesSection: React.FC = () => {
       <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6 py-20 service-mobile-wrapper">
         <div className="space-y-3 mb-10">
           <SectionTag number="03" label="Ekosistem Layanan" />
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-white leading-tight">
+          <h2 className="font-serif text-3xl font-bold tracking-tight text-navy-950 leading-tight">
             Empat Pilar Pengembangan Karier
           </h2>
-          <p className="text-sm text-slate-300 leading-relaxed font-sans">
+          <p className="text-sm text-slate-600 leading-relaxed font-sans">
             Mendukung siklus transisi mahasiswa tingkat akhir dan alumni menuju dunia industri
             profesional terkemuka.
           </p>
@@ -274,34 +274,34 @@ export const PinnedServicesSection: React.FC = () => {
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="service-panel-mobile p-6 rounded-2xl bg-navy-900 border border-white/10 space-y-5"
+              className="service-panel-mobile p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-5"
             >
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-xl bg-blue-500/15 border border-blue-400/30 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center">
                   {service.icon}
                 </div>
-                <span className="font-serif italic text-2xl font-bold text-slate-500">
+                <span className="font-serif italic text-3xl font-bold text-slate-200">
                   {service.number}
                 </span>
               </div>
 
               <div className="space-y-1">
-                <span className="text-xs font-mono uppercase tracking-widest text-blue-300">
+                <span className="text-xs font-mono uppercase tracking-widest text-blue-700 font-semibold">
                   {service.subtitle}
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-white">
+                <h3 className="font-serif text-2xl font-bold text-navy-950">
                   {service.title}
                 </h3>
               </div>
 
-              <p className="text-sm text-slate-300 leading-relaxed font-sans">
+              <p className="text-sm text-slate-600 leading-relaxed font-sans">
                 {service.description}
               </p>
 
-              <div className="pt-3 border-t border-white/10 space-y-2">
+              <div className="pt-3 border-t border-slate-100 space-y-2">
                 {service.features.map((feature, fIdx) => (
-                  <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-200">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                  <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-700">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { mockTracerStats } from '../../data/mockTracer';
 import { SectionTag } from '../ui/SectionTag';
@@ -8,6 +8,7 @@ import { MagneticButton } from '../ui/MagneticButton';
 
 export const TracerStudyTeaser: React.FC = () => {
   const containerRef = useRef<HTMLElement | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -55,14 +56,14 @@ export const TracerStudyTeaser: React.FC = () => {
     <section
       ref={containerRef}
       id="tracer-study"
-      className="relative py-28 bg-[#F7F8FB] text-navy-950 overflow-hidden"
+      className="relative py-28 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-navy-950/10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200/80">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-3">
-              <SectionTag number="04" label="Transparansi & Mutu" light />
+              <SectionTag number="04" label="Transparansi & Mutu" />
               <DummyBadge label="Data contoh tracer" />
             </div>
             <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-navy-950 leading-tight">
@@ -78,8 +79,7 @@ export const TracerStudyTeaser: React.FC = () => {
             <MagneticButton
               size="md"
               variant="primary"
-              href="#tracer-study"
-              onClick={() => alert('Portal pengisian instrumen Tracer Study khusus alumni UPB terverifikasi dibuka per periode survei.')}
+              onClick={() => setModalOpen(true)}
             >
               <span>Isi Kuesioner Tracer</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -188,7 +188,7 @@ export const TracerStudyTeaser: React.FC = () => {
             </div>
 
             {/* Kartu Relevansi Kurikulum */}
-            <div className="p-8 rounded-3xl bg-navy-950 text-white space-y-4 tracer-card-reveal relative overflow-hidden">
+            <div className="p-8 rounded-3xl bg-navy-950 text-white space-y-4 tracer-card-reveal relative overflow-hidden shadow-xl border border-navy-900">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl pointer-events-none" />
 
               <span className="text-xs font-mono uppercase tracking-widest text-blue-300 block">
@@ -212,6 +212,66 @@ export const TracerStudyTeaser: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal Dialog Aksesibel Pengisian Tracer Study */}
+      {modalOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-navy-950/70 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setModalOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-md p-6 sm:p-8 rounded-3xl bg-white text-navy-950 shadow-2xl border border-slate-200 space-y-5 animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between">
+              <div>
+                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-700 block mb-1">
+                  INSTRUMEN TRACER STUDY RESMI
+                </span>
+                <h3 className="font-serif text-2xl font-bold text-navy-950">
+                  Survei Penelusuran Lulusan
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setModalOpen(false)}
+                className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors"
+                aria-label="Tutup jendela informasi"
+              >
+                ✕
+              </button>
+            </div>
+
+            <p className="text-sm text-slate-600 leading-relaxed font-sans">
+              Pengisian instrumen survei Tracer Study dikhususkan bagi alumni Universitas Pelita Bangsa
+              pada periode evaluasi transisi kerja (6–12 bulan pasca kelulusan) menggunakan NIM resmi.
+            </p>
+
+            <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200/80 text-xs text-navy-950 space-y-2">
+              <div className="flex items-center gap-2 font-semibold">
+                <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>Kerahasiaan Data Terjamin</span>
+              </div>
+              <p className="text-slate-600">
+                Setiap data responden diproses secara terenkripsi dan hanya disajikan dalam bentuk agregat
+                statistik publik sesuai standar privasi institusi.
+              </p>
+            </div>
+
+            <div className="pt-2 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setModalOpen(false)}
+                className="px-6 py-2.5 rounded-full bg-navy-950 hover:bg-navy-900 text-white text-sm font-medium transition-colors"
+              >
+                Mengerti & Kembali
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

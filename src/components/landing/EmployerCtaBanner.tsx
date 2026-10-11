@@ -21,15 +21,15 @@ export const EmployerCtaBanner: React.FC = () => {
   };
 
   return (
-    <section className="relative py-28 bg-[#F7F8FB] text-navy-950 overflow-hidden">
+    <section className="relative py-28 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-navy-950 text-white p-10 sm:p-16 lg:p-20 overflow-hidden shadow-[0_25px_60px_rgba(4,11,31,0.3)] border border-navy-900">
+        <div className="relative rounded-3xl bg-navy-950 text-white p-10 sm:p-16 lg:p-20 overflow-hidden shadow-[0_25px_60px_rgba(4,11,31,0.25)] border border-navy-900">
           {/* Radial Ambient Accent */}
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute inset-0 bg-grain opacity-25 pointer-events-none" />
+          <div className="absolute inset-0 bg-grain pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl space-y-8">
-            <SectionTag number="06" label="Kemitraan Industri" />
+            <SectionTag number="06" label="Kemitraan Industri" dark />
 
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
               Bermitra dengan CDC UPB untuk Menjaring Talenta Siap Kerja
@@ -59,7 +59,7 @@ export const EmployerCtaBanner: React.FC = () => {
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <MagneticButton
                 size="lg"
-                variant="primary"
+                className="bg-white text-navy-950 hover:bg-slate-100 shadow-md border-0"
                 onClick={() => setModalOpen(true)}
               >
                 <span>Daftarkan Perusahaan Mitra</span>
@@ -68,7 +68,7 @@ export const EmployerCtaBanner: React.FC = () => {
 
               <MagneticButton
                 size="lg"
-                variant="secondary"
+                className="bg-transparent text-white border border-white/30 hover:bg-white/10"
                 href="#beranda"
               >
                 <span>Pelajari Alur Rekrutmen</span>
