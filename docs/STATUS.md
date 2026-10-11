@@ -12,7 +12,9 @@
   - **Varian A (`/hero-a`)**: Clean White Focus (Headline 68px, single input pill terintegrasi, live job radar console fungsional ber-badge).
   - **Varian B (`/hero-b`)**: Deep Navy Prestige (Headline 66px editorial serif-italic, primary magnetic action, live tracer analytics console fungsional ber-badge).
 - [x] Verifikasi tangkapan layar kedua varian di desktop (1440px) dan mobile (390px) pada folder [`screenshots/variants/`](file:///home/arfiandastr/Documents/work/cdc-upb/screenshots/variants/).
-- [x] Tipografi & Desain: Self-hosted `@fontsource/instrument-serif` (Display Headline) & `@fontsource/geist-sans` (Body & Interface UI), palet Navy 950/900/700, Biru Aksen #2F6BFF, Kertas #F7F8FB, dan Teks Tinta #0F172A.
+- [x] Tipografi & Desain (Revisi Pengguna):
+  - **Palet Baru**: Dominan putih murni & paper bersih (~85% permukaan: `#FFFFFF`, `#F8FAFC`), dengan aksen biru dongker terarah (~15%: `#040B1F`, `#061233`, `#0B1F4B`).
+  - **Tipografi**: Self-hosted `@fontsource/instrument-serif` (Display Headline editorial yang berkarakter) & `@fontsource/geist-sans` (Body & Interface UI), kontras WCAG AA superior (16.8:1 - 19.5:1).
 - [x] Lapisan Abstraksi Data:
   - Definisi tipe TypeScript di [`src/types/database.ts`](file:///home/arfiandastr/Documents/work/cdc-upb/src/types/database.ts) sesuai model data skema PRD tabel `cdc_*`.
   - Abstraksi API terpusat di [`src/lib/api.ts`](file:///home/arfiandastr/Documents/work/cdc-upb/src/lib/api.ts).
@@ -22,17 +24,17 @@
   - Lenis smooth scroll (`lerp: 0.085`) disinkronkan langsung dengan GSAP ticker dan ScrollTrigger.
   - Tangani scroll restoration, perpindahan rute scroll-to-top, internal anchor link scrollTo dengan offset, dan auto-refresh ScrollTrigger setelah font dan gambar siap (`document.fonts.ready`).
   - Fallback otomatis untuk `prefers-reduced-motion`.
-- [x] Komponen & Layout Landing Page:
-  - **Navbar**: Transparan di hero, bertransisi ke navy glass blur saat di-scroll, smart hide saat scroll turun dan reveal saat scroll naik, scroll progress bar 1.5px, dialog menu mobile accessible.
-  - **Hero Section**: Reveal baris teks bermask (`translateY 110% -> 0`), search bar capsule mengambang, ambient glow dan noise 3.5%, slot foto kampus UPB ber-duotone navy dengan label `GANTI DENGAN FOTO ASLI UPB`.
-  - **Partner Marquee**: Logo mitra kawasan industri Cikarang (MM2100, Jababeka, EJIP, GIIC) yang kecepatannya bereaksi dinamis terhadap scroll velocity.
-  - **Featured Jobs**: Tata letak asimetris 12-kolom (1 kartu highlight utama di kiri, 2 kartu bertingkat di kanan), filter bidang fungsional, modal detail kriteria interaktif accessible.
-  - **Impact Statistics Band**: Kanvas Navy 950 gelap, angka tabular raksasa, animasi count-up numerik presisi, dan garis hairline self-drawing saat masuk viewport.
-  - **Pinned Services Section**: Mode desktop menggunakan pinned scrub 4 panel dengan active indicator; mode mobile menggunakan vertical stack responsif tanpa pin (sesuai revisi 3).
-  - **Tracer Study Teaser**: Grafik batang distribusi sektor industri tumbuh vertikal saat masuk viewport, metrik aktivitas lulusan dan relevansi kurikulum.
-  - **Alumni Stories**: Format editorial quote berkelas (Instrument Serif italic), switcher alumni interaktif, siluet foto duotone.
-  - **Employer CTA Banner**: Kontainer navy mewah, tombol magnetik dengan efek sweep, modal formulir permohonan kemitraan interaktif dengan state konfirmasi.
-  - **Footer Arsitektural**: Grid 4 kolom terstruktur, placeholder jujur bertanda jelas untuk alamat kampus, kebijakan privasi UU PDP, dan status akreditasi BAN-PT, tombol back to top Lenis.
+- [x] Komponen & Layout Landing Page (Dominan Putih + Aksen Biru Dongker):
+  - **Navbar**: Kanvas putih bersih (`bg-white/95 backdrop-blur-md`), monogram CDC navy, link navigasi navy hover dengan underline dinamis, tombol CTA pill navy.
+  - **Hero Section**: Kanvas putih murni, headline display raksasa Instrument Serif + Geist dalam tinta navy gelap, single-input search pill terintegrasi (gaya SquareDash), serta radar konsol lowongan aktif interaktif fungsional.
+  - **Partner Marquee**: Kanvas putih dengan edge fade putih halus, chips mitra berlatar slate terang dengan monogram biru dongker ber-border tipis.
+  - **Featured Jobs**: Tata letak asimetris 12-kolom di atas kanvas putih, filter bidang interaktif dengan pill aktif navy, kartu lowongan ber-border slate rapi, modal detail interaktif.
+  - **Impact Statistics Band**: Kanvas paper terang (`#F8FAFC`), angka tabular raksasa dalam deep navy, hairline divider arsitektural self-drawing beranimasi halus.
+  - **Pinned Services Section**: Pinned scroll desktop & vertical stack mobile di atas kanvas paper terang, kartu layanan putih dengan aksen icon dan nomor watermark Instrument Serif.
+  - **Tracer Study Teaser**: Kanvas putih bersih, grafik batang distribusi industri tumbuh dinamis, kartu aktivitas lulusan, dan modal kuesioner tracer study interaktif yang accessible.
+  - **Alumni Stories**: Kanvas paper terang, quote editorial Instrument Serif italic dalam warna navy pekat, kartu profil alumni dengan monogram arsitektural.
+  - **Employer CTA Banner**: Satu-satunya aksen blok navy (`bg-navy-950 text-white`) kontras di atas kanvas putih, tombol magnetik putih dengan border aksen, modal pendaftaran mitra resmi.
+  - **Footer Arsitektural**: Kanvas paper terang, grid 4 kolom terstruktur, placeholder berlabel jelas untuk kebijakan privasi dan akreditasi, tombol kembali ke atas Lenis.
 
 ---
 
