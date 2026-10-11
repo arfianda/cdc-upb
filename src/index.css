@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/500.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
+
+@theme {
+  --color-navy-950: #040b1f;
+  --color-navy-900: #061233;
+  --color-navy-850: #08173d;
+  --color-navy-800: #0a1c47;
+  --color-navy-700: #0b1f4b;
+  --color-blue-accent: #2f6bff;
+  --color-blue-light: #bfd4ff;
+  --color-paper: #f7f8fb;
+  --color-ink: #0f172a;
+  --color-slate-subtle: #64748b;
+  
+  --font-serif: "Instrument Serif", Georgia, Cambria, serif;
+  --font-sans: "Geist Sans", system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Geist Sans", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+/* Base resets & typography */
+html {
+  font-family: var(--font-body);
+  scroll-behavior: auto; /* Dikelola penuh oleh Lenis */
+  background-color: #040b1f;
+  color: #0f172a;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #040b1f;
+}
+
+/* Grain texture overlay yang sangat halus (3.5% opacity) */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Tabular figures untuk angka statistik presisi */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hairline utilities */
+.hairline-light {
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+.hairline-dark {
+  border-color: rgba(11, 31, 75, 0.12);
+}
+
+/* Duotone image filter khas luxury editorial navy */
+.filter-duotone-navy {
+  filter: contrast(110%) brightness(95%) grayscale(25%);
+}
+
+/* Lenis smooth scroll recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Selection highlight elegan */
+::selection {
+  background-color: #2f6bff;
+  color: #ffffff;
+}
+
+/* Focus styles terarah untuk aksesibilitas WCAG AA (R-32) */
+:focus-visible {
+  outline: 2px solid #2f6bff;
+  outline-offset: 3px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
