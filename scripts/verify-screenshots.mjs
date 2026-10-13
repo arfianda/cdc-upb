@@ -18,7 +18,7 @@ async function run() {
 
   console.log('1. Testing Desktop Viewport (1440x900)...');
   await page.setViewport({ width: 1440, height: 900, deviceScaleFactor: 2 });
-  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle0' });
+  await page.goto('http://localhost:4173/', { waitUntil: 'networkidle0' });
 
   // Tunggu fonts
   await page.evaluate(async () => {
@@ -70,7 +70,7 @@ async function run() {
 
   console.log('2. Testing Mobile Viewport (390x844 - iPhone 14 / modern standard)...');
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
-  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle0' });
+  await page.goto('http://localhost:4173/', { waitUntil: 'networkidle0' });
 
   // Screenshot full page mobile
   await page.screenshot({
@@ -116,7 +116,7 @@ async function run() {
 
   console.log('3. Testing prefers-reduced-motion...');
   await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
-  await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle0' });
+  await page.goto('http://localhost:4173/', { waitUntil: 'networkidle0' });
   await page.screenshot({
     path: path.join(SCREENSHOT_DIR, '16_reduced_motion_active.webp'),
     type: 'webp',

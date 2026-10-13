@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_2px_15px_rgba(4,11,31,0.03)] py-3.5 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out bg-[#FAF9F5]/90 backdrop-blur-md border-b border-[#E8E5DD] shadow-[0_2px_15px_rgba(4,11,31,0.02)] py-3.5 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
@@ -75,7 +75,7 @@ export const Navbar: React.FC = () => {
               href="/"
               className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 rounded-md"
             >
-              <div className="w-9 h-9 rounded-lg bg-navy-950 border border-navy-900 flex items-center justify-center shadow-xs">
+              <div className="w-9 h-9 rounded-xl bg-navy-950 border border-navy-900 flex items-center justify-center shadow-xs">
                 <span className="font-serif italic font-bold text-lg text-white">C</span>
               </div>
               <div className="flex flex-col">
@@ -94,29 +94,28 @@ export const Navbar: React.FC = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="relative text-sm font-medium text-slate-600 hover:text-navy-950 transition-colors duration-200 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-navy-950 hover:after:w-full after:transition-all after:duration-300"
+                  className="relative text-sm font-medium text-slate-700 hover:text-navy-950 transition-colors duration-200 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-navy-950 hover:after:w-full after:transition-all after:duration-300"
                 >
                   {link.label}
                 </a>
               ))}
             </nav>
 
-            {/* Desktop Action Buttons */}
+            {/* Desktop Action Buttons (Heyo Style Accent Pill) */}
             <div className="hidden md:flex items-center gap-3">
               <a
                 href="#tracer-study"
-                className="text-xs font-semibold tracking-wider uppercase text-slate-600 hover:text-navy-950 px-3 py-2 transition-colors"
+                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-navy-950 px-3 py-2 transition-colors"
               >
                 Tracer Study
               </a>
-              <MagneticButton
-                size="sm"
-                variant="primary"
+              <a
                 href="#lowongan"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#FFDE00] text-slate-950 font-semibold text-xs tracking-wide hover:bg-[#F0CF00] transition-all hover:scale-105 active:scale-95 shadow-xs"
               >
                 <span>Cari Lowongan</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
-              </MagneticButton>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}

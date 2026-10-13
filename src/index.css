@@ -15,8 +15,12 @@
   --color-navy-700: #0b1f4b;
   --color-blue-accent: #2f6bff;
   --color-blue-light: #bfd4ff;
-  --color-paper: #f8fafc;
-  --color-ink: #0f172a;
+  --color-paper: #faf9f5;
+  --color-paper-warm: #f3efe6;
+  --color-paper-card: #f7f5ef;
+  --color-heyo-yellow: #ffde00;
+  --color-heyo-yellow-hover: #f0cf00;
+  --color-ink: #121417;
   --color-slate-subtle: #64748b;
   
   --font-serif: "Instrument Serif", Georgia, Cambria, serif;
@@ -29,12 +33,12 @@
   color-scheme: light;
 }
 
-/* Base resets & typography: DOMINAN PUTIH */
+/* Base resets & typography: Warm Ivory Canvas ala Heyo/Gusto */
 html {
   font-family: var(--font-body);
   scroll-behavior: auto; /* Dikelola penuh oleh Lenis */
-  background-color: #ffffff;
-  color: #0f172a;
+  background-color: #faf9f5;
+  color: #121417;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -44,8 +48,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #ffffff;
-  color: #0f172a;
+  background-color: #faf9f5;
+  color: #121417;
 }
 
 /* Grain texture overlay yang sangat halus (2% opacity pada kanvas terang) */

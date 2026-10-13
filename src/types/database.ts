@@ -106,6 +106,10 @@ export interface AlumniStory {
   perusahaan: string;
   kutipan: string;
   foto_url?: string | null;
+  headline?: string;
+  metric?: string;
+  metric_label?: string;
+  avatar_url?: string | null;
   isDummy?: boolean;
 }
 
