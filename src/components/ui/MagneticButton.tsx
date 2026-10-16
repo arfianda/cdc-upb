@@ -57,13 +57,13 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
 
   const variantStyle = {
     primary:
-      'bg-navy-950 text-white hover:bg-navy-900 shadow-[0_10px_25px_-5px_rgba(4,11,31,0.25)] border border-navy-850 active:scale-[0.98]',
+      'bg-gradient-to-r from-[#0C4A9E] to-[#00A3E0] text-white hover:from-[#093B80] hover:to-[#008FC5] shadow-[0_10px_25px_-5px_rgba(12,74,158,0.35)] border border-[#0C4A9E] active:scale-[0.98]',
     secondary:
-      'bg-white text-navy-950 border border-slate-200 hover:border-navy-950 hover:bg-slate-50 active:scale-[0.98] shadow-xs',
+      'bg-white text-[#071E4A] border border-[#BAE6FD] hover:border-[#0C4A9E] hover:bg-[#F0F7FF] active:scale-[0.98] shadow-xs',
     outline:
-      'bg-transparent text-navy-950 border border-navy-950/25 hover:border-navy-950 hover:bg-navy-950/5 active:scale-[0.98]',
+      'bg-transparent text-[#071E4A] border border-[#BAE6FD] hover:border-[#0C4A9E] hover:bg-[#F0F7FF] active:scale-[0.98]',
     ghost:
-      'bg-transparent text-slate-700 hover:text-navy-950 hover:bg-slate-100 active:scale-[0.98]',
+      'bg-transparent text-slate-700 hover:text-[#0C4A9E] hover:bg-[#F0F7FF] active:scale-[0.98]',
   }[variant];
 
   const content = (

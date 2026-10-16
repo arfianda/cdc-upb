@@ -6,7 +6,6 @@ import { SectionTag } from '../ui/SectionTag';
 
 interface ServiceItem {
   id: string;
-  number: string;
   title: string;
   subtitle: string;
   description: string;
@@ -17,7 +16,6 @@ interface ServiceItem {
 const servicesData: ServiceItem[] = [
   {
     id: 'service-1',
-    number: '01',
     title: 'Portal Lowongan Terverifikasi',
     subtitle: 'Kemitraan Langsung Kawasan Industri',
     description:
@@ -27,11 +25,10 @@ const servicesData: ServiceItem[] = [
       'Integrasi kualifikasi prodi Teknik, Ekonomi, & Hukum',
       'Informasi rentang kompensasi dan fasilitas kerja transparan',
     ],
-    icon: <Briefcase className="w-6 h-6 text-navy-950" />,
+    icon: <Briefcase className="w-6 h-6 text-[#0C4A9E]" />,
   },
   {
     id: 'service-2',
-    number: '02',
     title: 'Tracer Study Terstandarisasi',
     subtitle: 'Evaluasi Mutu & Akreditasi Program Studi',
     description:
@@ -41,11 +38,10 @@ const servicesData: ServiceItem[] = [
       'Dashboard statistik publik aman privasi (UU PDP)',
       'Laporan evaluasi transisi studi ke dunia kerja per angkatan',
     ],
-    icon: <BarChart3 className="w-6 h-6 text-navy-950" />,
+    icon: <BarChart3 className="w-6 h-6 text-[#0C4A9E]" />,
   },
   {
     id: 'service-3',
-    number: '03',
     title: 'Profil & Jejaring Alumni',
     subtitle: 'Kolaborasi Profesional Lintas Generasi',
     description:
@@ -55,11 +51,10 @@ const servicesData: ServiceItem[] = [
       'Peluang bimbingan karier bagi mahasiswa tingkat akhir',
       'Koneksi strategis alumni di kawasan Jabodetabek',
     ],
-    icon: <Users className="w-6 h-6 text-navy-950" />,
+    icon: <Users className="w-6 h-6 text-[#0C4A9E]" />,
   },
   {
     id: 'service-4',
-    number: '04',
     title: 'Klinik CV & Konseling Karier',
     subtitle: 'Pembekalan Kompetensi Siap Kerja',
     description:
@@ -69,7 +64,7 @@ const servicesData: ServiceItem[] = [
       'Simulasi wawancara kerja berbasis kompetensi nyata',
       'Jadwal rutin agenda rekrutmen langsung di kampus',
     ],
-    icon: <GraduationCap className="w-6 h-6 text-navy-950" />,
+    icon: <GraduationCap className="w-6 h-6 text-[#0C4A9E]" />,
   },
 ];
 
@@ -167,8 +162,8 @@ export const PinnedServicesSection: React.FC = () => {
           {/* Sisi Kiri Sticky (5 Cols) */}
           <div className="col-span-5 space-y-8 pr-6">
             <div className="space-y-3">
-              <SectionTag number="03" label="Ekosistem Layanan" />
-              <h2 className="font-serif text-4xl xl:text-5xl font-bold tracking-tight text-navy-950 leading-tight">
+              <SectionTag label="Ekosistem Layanan" />
+              <h2 className="font-sans text-4xl xl:text-5xl font-extrabold tracking-tight text-[#071E4A] leading-tight">
                 Empat Pilar Pengembangan Karier
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed font-sans">
@@ -182,22 +177,20 @@ export const PinnedServicesSection: React.FC = () => {
               {servicesData.map((service, idx) => (
                 <div
                   key={service.id}
-                  className={`flex items-center gap-4 p-3 rounded-xl transition-all duration-300 ${
+                  className={`flex items-center gap-3.5 p-3 rounded-xl transition-all duration-300 ${
                     activeStep === idx
-                      ? 'bg-white border-2 border-navy-950 text-navy-950 shadow-xs'
-                      : 'text-slate-500 hover:text-slate-800'
+                      ? 'bg-[#F0F7FF] border-2 border-[#0C4A9E] text-[#071E4A] shadow-xs font-bold'
+                      : 'text-slate-600 hover:text-slate-900 font-medium'
                   }`}
                 >
                   <span
-                    className={`font-mono text-xs font-bold px-2.5 py-1 rounded-md transition-colors ${
+                    className={`w-2.5 h-2.5 rounded-full transition-all shrink-0 ${
                       activeStep === idx
-                        ? 'bg-navy-950 text-white'
-                        : 'bg-slate-200/80 text-slate-600'
+                        ? 'bg-[#00A3E0] scale-125'
+                        : 'bg-slate-300'
                     }`}
-                  >
-                    {service.number}
-                  </span>
-                  <span className="text-sm font-semibold">{service.title}</span>
+                  />
+                  <span className="text-sm font-sans">{service.title}</span>
                 </div>
               ))}
             </div>
@@ -206,7 +199,7 @@ export const PinnedServicesSection: React.FC = () => {
           {/* Sisi Kanan Panel Berganti (7 Cols) */}
           <div
             ref={panelsContainerRef}
-            className="col-span-7 relative h-[520px] rounded-3xl bg-white border border-slate-200/90 p-10 overflow-hidden shadow-[0_20px_50px_rgba(4,11,31,0.06)]"
+            className="col-span-7 relative h-[520px] rounded-3xl bg-white border border-[#E0EDFD] p-10 overflow-hidden shadow-[0_20px_50px_rgba(12,74,158,0.06)]"
           >
             {servicesData.map((service, idx) => (
               <div
@@ -216,19 +209,19 @@ export const PinnedServicesSection: React.FC = () => {
               >
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-2xl bg-[#F0F7FF] border border-[#BAE6FD] flex items-center justify-center">
                       {service.icon}
                     </div>
-                    <span className="font-serif italic text-4xl font-bold text-slate-200">
-                      {service.number}
+                    <span className="px-3 py-1 rounded-full text-xs font-sans font-semibold bg-[#E0F2FE] text-[#0C4A9E]">
+                      Layanan Terpadu
                     </span>
                   </div>
 
                   <div className="space-y-2">
-                    <span className="text-xs font-mono uppercase tracking-widest text-blue-700 font-semibold">
+                    <span className="text-xs font-sans uppercase tracking-wider text-[#0C4A9E] font-bold">
                       {service.subtitle}
                     </span>
-                    <h3 className="font-serif text-3xl font-bold text-navy-950">
+                    <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-[#071E4A]">
                       {service.title}
                     </h3>
                   </div>
@@ -240,16 +233,16 @@ export const PinnedServicesSection: React.FC = () => {
                   <div className="pt-4 border-t border-slate-100 space-y-2.5">
                     {service.features.map((feature, fIdx) => (
                       <div key={fIdx} className="flex items-center gap-2.5 text-xs text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-blue-700 shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#00A3E0] shrink-0" />
                         <span>{feature}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-6 flex items-center justify-between text-xs text-slate-400 font-mono border-t border-slate-100">
+                <div className="pt-6 flex items-center justify-between text-xs text-slate-500 font-sans font-medium border-t border-slate-100">
                   <span>Universitas Pelita Bangsa</span>
-                  <span>Pilar Layanan {service.number} dari 04</span>
+                  <span>Pilar Layanan CDC UPB</span>
                 </div>
               </div>
             ))}
@@ -260,8 +253,8 @@ export const PinnedServicesSection: React.FC = () => {
       {/* MOBILE & TABLET VIEW (VERTICAL STACK TANPA PIN) */}
       <div className="lg:hidden max-w-7xl mx-auto px-4 sm:px-6 py-20 service-mobile-wrapper">
         <div className="space-y-3 mb-10">
-          <SectionTag number="03" label="Ekosistem Layanan" />
-          <h2 className="font-serif text-3xl font-bold tracking-tight text-navy-950 leading-tight">
+          <SectionTag label="Ekosistem Layanan" />
+          <h2 className="font-sans text-3xl font-extrabold tracking-tight text-[#071E4A] leading-tight">
             Empat Pilar Pengembangan Karier
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed font-sans">
@@ -274,22 +267,22 @@ export const PinnedServicesSection: React.FC = () => {
           {servicesData.map((service) => (
             <div
               key={service.id}
-              className="service-panel-mobile p-6 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-5"
+              className="service-panel-mobile p-6 rounded-2xl bg-white border border-[#E0EDFD] shadow-[0_10px_30px_rgba(12,74,158,0.04)] space-y-5"
             >
               <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD] flex items-center justify-center">
                   {service.icon}
                 </div>
-                <span className="font-serif italic text-3xl font-bold text-slate-200">
-                  {service.number}
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-sans font-semibold bg-[#E0F2FE] text-[#0C4A9E]">
+                  Layanan Terpadu
                 </span>
               </div>
 
               <div className="space-y-1">
-                <span className="text-xs font-mono uppercase tracking-widest text-blue-700 font-semibold">
+                <span className="text-xs font-sans uppercase tracking-wider text-[#0C4A9E] font-bold">
                   {service.subtitle}
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-navy-950">
+                <h3 className="font-sans text-xl sm:text-2xl font-bold tracking-tight text-[#071E4A]">
                   {service.title}
                 </h3>
               </div>
@@ -301,7 +294,7 @@ export const PinnedServicesSection: React.FC = () => {
               <div className="pt-3 border-t border-slate-100 space-y-2">
                 {service.features.map((feature, fIdx) => (
                   <div key={fIdx} className="flex items-center gap-2 text-xs text-slate-700">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-700 shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#00A3E0] shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}

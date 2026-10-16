@@ -62,17 +62,17 @@ export const FeaturedJobsSection: React.FC = () => {
     <section
       ref={containerRef}
       id="lowongan"
-      className="relative py-28 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80"
+      className="relative py-28 bg-[#F8FAFC] text-slate-900 overflow-hidden border-b border-[#E0EDFD]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header Asymmetric Editorial */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-slate-200/80">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-12 border-b border-[#E0EDFD]">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-3">
-              <SectionTag number="01" label="Peluang Karier Unggulan" />
+              <SectionTag label="Peluang Karier Unggulan" />
               <DummyBadge label="Data contoh lowongan" />
             </div>
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-navy-950 leading-tight">
+            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold tracking-tight text-[#071E4A] leading-tight">
               Kurasi Posisi Terverifikasi Minggu Ini
             </h2>
             <p className="text-base text-slate-600 leading-relaxed font-sans">
@@ -95,7 +95,7 @@ export const FeaturedJobsSection: React.FC = () => {
 
         {/* Filter Chips Sederhana */}
         <div className="py-8 flex flex-wrap items-center gap-2">
-          <span className="text-xs font-mono uppercase tracking-wider text-slate-500 mr-2">
+          <span className="text-xs font-sans uppercase tracking-wider text-[#0C4A9E] font-bold mr-2">
             Filter Bidang:
           </span>
           {bidangList.map((bidang) => (
@@ -103,10 +103,10 @@ export const FeaturedJobsSection: React.FC = () => {
               key={bidang}
               type="button"
               onClick={() => setSelectedBidang(bidang)}
-              className={`px-4 py-2 rounded-full text-xs font-medium font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 ${
+              className={`px-4 py-2 rounded-full text-xs font-medium font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00A3E0] ${
                 selectedBidang === bidang
-                  ? 'bg-navy-950 text-white shadow-xs'
-                  : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-400'
+                  ? 'bg-gradient-to-r from-[#0C4A9E] to-[#00A3E0] text-white shadow-sm'
+                  : 'bg-white text-slate-700 border border-[#BAE6FD] hover:border-[#0C4A9E] hover:bg-[#F0F7FF]'
               }`}
             >
               {bidang}
@@ -119,20 +119,20 @@ export const FeaturedJobsSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Kartu Utama Lebar (7 Cols) */}
             <div className="lg:col-span-7 job-card-batch">
-              <div className="group relative p-8 sm:p-10 rounded-2xl bg-white border border-navy-950/10 hover:border-navy-950/30 shadow-[0_4px_20px_rgba(11,31,75,0.04)] hover:shadow-[0_25px_45px_-12px_rgba(11,31,75,0.12)] transition-all duration-300 hover:-translate-y-1">
+              <div className="group relative p-8 sm:p-10 rounded-2xl bg-white border border-[#E0EDFD] hover:border-[#00A3E0] shadow-[0_4px_20px_rgba(12,74,158,0.04)] hover:shadow-[0_25px_45px_-12px_rgba(12,74,158,0.12)] transition-all duration-300 hover:-translate-y-1">
                 {/* Header Kartu */}
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#E0F2FE] text-[#0C4A9E] border border-[#BAE6FD]">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#00A3E0]" />
                         Mitra Prioritas
                       </span>
-                      <span className="px-2.5 py-1 rounded-full text-xs font-mono text-slate-600 bg-slate-100">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-sans font-medium text-slate-600 bg-slate-100">
                         {featuredJob.tipe}
                       </span>
                     </div>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-navy-950 group-hover:text-blue-700 transition-colors pt-2">
+                    <h3 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-[#071E4A] group-hover:text-[#0C4A9E] transition-colors pt-2">
                       {featuredJob.judul}
                     </h3>
                     <div className="flex items-center gap-2 text-sm text-slate-600 font-medium">
@@ -141,7 +141,7 @@ export const FeaturedJobsSection: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center font-serif font-bold text-navy-900 text-lg shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD] flex items-center justify-center font-sans font-black text-[#0C4A9E] text-lg shrink-0">
                     {featuredJob.company_name.charAt(3) || 'P'}
                   </div>
                 </div>
@@ -152,14 +152,14 @@ export const FeaturedJobsSection: React.FC = () => {
 
                 {/* Persyaratan Highlight */}
                 {featuredJob.persyaratan && (
-                  <div className="mb-6 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 block mb-2">
+                  <div className="mb-6 p-4 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD]/80">
+                    <span className="text-xs font-sans font-bold uppercase tracking-wider text-[#0C4A9E] block mb-2">
                       Kualifikasi Kunci:
                     </span>
                     <ul className="space-y-1.5 text-xs text-slate-700">
                       {featuredJob.persyaratan.slice(0, 3).map((req, i) => (
                         <li key={i} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-blue-600 shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#00A3E0] shrink-0" />
                           <span>{req}</span>
                         </li>
                       ))}
@@ -174,7 +174,7 @@ export const FeaturedJobsSection: React.FC = () => {
                       <MapPin className="w-3.5 h-3.5 text-slate-400" />
                       <span>{featuredJob.lokasi}</span>
                     </div>
-                    <div className="text-sm font-semibold text-navy-950 font-mono">
+                    <div className="text-sm font-bold text-[#071E4A] font-sans">
                       {featuredJob.gaji_display}
                     </div>
                   </div>
@@ -183,7 +183,7 @@ export const FeaturedJobsSection: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setSelectedJobForModal(featuredJob)}
-                      className="px-4 py-2.5 rounded-full text-xs font-semibold text-navy-950 bg-slate-100 hover:bg-slate-200 transition-colors"
+                      className="px-4 py-2.5 rounded-full text-xs font-semibold text-[#071E4A] bg-[#F0F7FF] hover:bg-[#E0F2FE] border border-[#BAE6FD] transition-colors"
                     >
                       Kriteria Lengkap
                     </button>
@@ -192,7 +192,7 @@ export const FeaturedJobsSection: React.FC = () => {
                         href={featuredJob.tautan_lamaran}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-navy-950 hover:bg-navy-900 transition-colors inline-flex items-center gap-1.5 shadow-xs"
+                        className="px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-[#0C4A9E] to-[#00A3E0] hover:from-[#093B80] hover:to-[#008FC5] transition-all inline-flex items-center gap-1.5 shadow-md shadow-blue-500/20"
                       >
                         <span>Lamar Posisi</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
@@ -208,24 +208,24 @@ export const FeaturedJobsSection: React.FC = () => {
               {secondaryJobs.map((job) => (
                 <div
                   key={job.id}
-                  className="job-card-batch group p-6 sm:p-7 rounded-2xl bg-white border border-navy-950/10 hover:border-navy-950/30 shadow-[0_4px_15px_rgba(11,31,75,0.03)] hover:shadow-[0_15px_30px_-8px_rgba(11,31,75,0.08)] transition-all duration-300 hover:-translate-y-1"
+                  className="job-card-batch group p-6 sm:p-7 rounded-2xl bg-white border border-[#E0EDFD] hover:border-[#00A3E0] shadow-[0_4px_15px_rgba(12,74,158,0.03)] hover:shadow-[0_15px_30px_-8px_rgba(12,74,158,0.08)] transition-all duration-300 hover:-translate-y-1"
                 >
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="flex items-center gap-2">
-                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono text-slate-600 bg-slate-100">
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-sans font-medium text-slate-600 bg-slate-100">
                         {job.tipe}
                       </span>
-                      <span className="text-xs text-blue-700 font-semibold">
+                      <span className="text-xs text-[#00A3E0] font-semibold">
                         {job.bidang}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1 text-[11px] text-slate-400 font-mono">
+                    <div className="flex items-center gap-1 text-[11px] text-slate-400 font-sans">
                       <Clock className="w-3 h-3" />
                       <span>Segera</span>
                     </div>
                   </div>
 
-                  <h4 className="font-serif text-xl font-bold text-navy-950 group-hover:text-blue-700 transition-colors mb-1">
+                  <h4 className="font-sans text-xl font-bold tracking-tight text-[#071E4A] group-hover:text-[#0C4A9E] transition-colors mb-1">
                     {job.judul}
                   </h4>
                   <p className="text-xs font-medium text-slate-600 mb-3 flex items-center gap-1.5">
@@ -238,13 +238,13 @@ export const FeaturedJobsSection: React.FC = () => {
                   </p>
 
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <span className="font-mono font-semibold text-navy-950">
+                    <span className="font-sans font-bold text-[#071E4A]">
                       {job.gaji_display}
                     </span>
                     <button
                       type="button"
                       onClick={() => setSelectedJobForModal(job)}
-                      className="inline-flex items-center gap-1 text-blue-700 hover:text-blue-800 font-semibold group-hover:translate-x-0.5 transition-transform"
+                      className="inline-flex items-center gap-1 text-[#0C4A9E] hover:text-[#00A3E0] font-semibold group-hover:translate-x-0.5 transition-transform"
                     >
                       <span>Lihat Rincian</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -271,10 +271,10 @@ export const FeaturedJobsSection: React.FC = () => {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <span className="inline-block px-2.5 py-1 rounded-full text-xs font-mono bg-blue-50 text-blue-700 border border-blue-200 mb-2">
+                <span className="inline-block px-2.5 py-1 rounded-full text-xs font-sans font-semibold bg-blue-50 text-blue-700 border border-blue-200 mb-2">
                   {selectedJobForModal.tipe} · {selectedJobForModal.bidang}
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-navy-950">
+                <h3 className="font-sans text-2xl font-bold tracking-tight text-navy-950">
                   {selectedJobForModal.judul}
                 </h3>
                 <p className="text-sm font-medium text-slate-600 flex items-center gap-1.5 mt-1">
@@ -311,12 +311,12 @@ export const FeaturedJobsSection: React.FC = () => {
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs">
                 <div>
-                  <span className="text-slate-400 block font-mono">Lokasi Penempatan</span>
-                  <span className="font-semibold text-navy-950">{selectedJobForModal.lokasi}</span>
+                  <span className="text-slate-400 block font-sans">Lokasi Penempatan</span>
+                  <span className="font-semibold text-navy-950 font-sans">{selectedJobForModal.lokasi}</span>
                 </div>
                 <div>
-                  <span className="text-slate-400 block font-mono">Estimasi Kompensasi</span>
-                  <span className="font-semibold text-navy-950 font-mono">{selectedJobForModal.gaji_display}</span>
+                  <span className="text-slate-400 block font-sans">Estimasi Kompensasi</span>
+                  <span className="font-bold text-navy-950 font-sans">{selectedJobForModal.gaji_display}</span>
                 </div>
               </div>
             </div>

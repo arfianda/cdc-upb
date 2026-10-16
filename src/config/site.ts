@@ -21,7 +21,7 @@ export const siteConfig = {
     { label: 'Beranda', href: '/' },
     { label: 'Lowongan', href: '/#lowongan' },
     { label: 'Layanan', href: '/#layanan' },
-    { label: 'Tracer Study', href: '/#tracer-study' },
+    { label: 'Tracer Study', href: '/tracer-study' },
     { label: 'Alumni', href: '/#cerita-alumni' },
     { label: 'Kemitraan', href: '/#mitra-industri' },
   ],

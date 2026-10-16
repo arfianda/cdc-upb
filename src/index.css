@@ -8,37 +8,37 @@
 @import "@fontsource/geist-sans/700.css";
 
 @theme {
-  --color-navy-950: #040b1f;
-  --color-navy-900: #061233;
-  --color-navy-850: #08173d;
-  --color-navy-800: #0a1c47;
-  --color-navy-700: #0b1f4b;
-  --color-blue-accent: #2f6bff;
-  --color-blue-light: #bfd4ff;
-  --color-paper: #faf9f5;
-  --color-paper-warm: #f3efe6;
-  --color-paper-card: #f7f5ef;
-  --color-heyo-yellow: #ffde00;
-  --color-heyo-yellow-hover: #f0cf00;
-  --color-ink: #121417;
+  --color-navy-950: #071e4a;
+  --color-navy-900: #0a2558;
+  --color-navy-850: #0c3e8a;
+  --color-navy-800: #0f4c9c;
+  --color-navy-700: #1a56a6;
+  --color-blue-accent: #00a3e0;
+  --color-blue-light: #e0f2fe;
+  --color-paper: #f8fafc;
+  --color-paper-warm: #f0f7ff;
+  --color-paper-card: #ffffff;
+  --color-heyo-yellow: #00a3e0;
+  --color-heyo-yellow-hover: #0284c7;
+  --color-ink: #071e4a;
   --color-slate-subtle: #64748b;
   
-  --font-serif: "Instrument Serif", Georgia, Cambria, serif;
+  --font-serif: "Geist Sans", system-ui, -apple-system, sans-serif;
   --font-sans: "Geist Sans", system-ui, -apple-system, sans-serif;
 }
 
 :root {
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-display: "Geist Sans", system-ui, sans-serif;
   --font-body: "Geist Sans", system-ui, sans-serif;
   color-scheme: light;
 }
 
-/* Base resets & typography: Warm Ivory Canvas ala Heyo/Gusto */
+/* Base resets & typography: Tone Biru Segar Selaras Logo CDC UPB */
 html {
   font-family: var(--font-body);
   scroll-behavior: auto; /* Dikelola penuh oleh Lenis */
-  background-color: #faf9f5;
-  color: #121417;
+  background-color: #f8fafc;
+  color: #071e4a;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -48,8 +48,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-color: #faf9f5;
-  color: #121417;
+  background-color: #f8fafc;
+  color: #071e4a;
 }
 
 /* Grain texture overlay yang sangat halus (2% opacity pada kanvas terang) */
@@ -102,6 +102,46 @@ html.lenis, html.lenis body {
 :focus-visible {
   outline: 2px solid #040b1f;
   outline-offset: 3px;
+}
+
+/* Hardware-Accelerated Marquee Animations (Butter-smooth 60/120fps) */
+@keyframes marquee-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 48s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 52s linear infinite;
+  will-change: transform;
+}
+
+.marquee-pause:hover .animate-marquee-left,
+.marquee-pause:hover .animate-marquee-right,
+.marquee-pause:focus-within .animate-marquee-left,
+.marquee-pause:focus-within .animate-marquee-right {
+  animation-play-state: paused;
 }
 
 /* Respect prefers-reduced-motion */

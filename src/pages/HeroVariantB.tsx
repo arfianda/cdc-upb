@@ -21,7 +21,7 @@ export const HeroVariantB: React.FC = () => {
 
         <div className="relative max-w-[1240px] mx-auto px-6 sm:px-8 lg:px-12">
           {/* Tag Penanda Varian untuk Pengujian */}
-          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-blue-300 text-xs font-mono">
+          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-blue-300 text-xs font-sans font-semibold">
             <span className="font-bold">VARIAN B</span>
             <span>·</span>
             <span>Prinsip Deep Navy Prestige (Karakter Institusional Kampus)</span>
@@ -94,7 +94,7 @@ export const HeroVariantB: React.FC = () => {
                       <span className="text-xs font-semibold text-white block">
                         Console Mutu & Keterserapan
                       </span>
-                      <span className="text-[10px] font-mono text-slate-400">
+                      <span className="text-[10px] font-sans text-slate-400">
                         Audit Data Tracer 2024
                       </span>
                     </div>
@@ -175,7 +175,7 @@ export const HeroVariantB: React.FC = () => {
 
                     <div className="p-3.5 rounded-xl bg-blue-500/10 border border-blue-400/20 flex items-center justify-between text-xs">
                       <span className="text-slate-300">Rata-rata waktu tunggu kerja:</span>
-                      <span className="font-bold text-blue-300 font-mono">
+                      <span className="font-bold text-blue-300 font-sans">
                         {mockTracerStats.rata_masa_tunggu_bulan} Bulan
                       </span>
                     </div>
@@ -186,7 +186,7 @@ export const HeroVariantB: React.FC = () => {
                       <div key={idx} className="space-y-1">
                         <div className="flex justify-between text-xs">
                           <span className="text-slate-300 truncate max-w-[200px]">{item.nama}</span>
-                          <span className="font-mono font-bold text-white tabular-nums">{item.persentase}%</span>
+                          <span className="font-sans font-bold text-white tabular-nums">{item.persentase}%</span>
                         </div>
                         <div className="h-2 rounded-full bg-navy-950 overflow-hidden">
                           <div

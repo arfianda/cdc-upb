@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { mockAlumniStories } from '../../data/mockStories';
 import { DummyBadge } from '../ui/DummyBadge';
+import { SectionTag } from '../ui/SectionTag';
 import { ChevronLeft, ChevronRight, ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export const AlumniStoriesSection: React.FC = () => {
@@ -32,17 +33,17 @@ export const AlumniStoriesSection: React.FC = () => {
   return (
     <section
       id="cerita-alumni"
-      className="relative py-24 sm:py-32 bg-[#FAF9F5] text-slate-900 overflow-hidden border-b border-[#E8E5DD]"
+      className="relative py-24 sm:py-32 bg-[#F8FAFC] text-slate-900 overflow-hidden border-b border-[#E0EDFD]"
     >
       <div className="absolute inset-0 bg-grain pointer-events-none opacity-40" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* 1. Header Ribbon Pill Ala Gusto (Screenshot 3) */}
+        {/* 1. Header Ribbon Pill Ala Gusto dengan Aksen Biru CDC */}
         <div className="mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2.5 px-5 sm:px-6 py-2.5 rounded-full bg-[#E8F5E9] text-[#1B5E20] border border-[#C8E6C9] font-medium text-xs sm:text-sm shadow-2xs">
-            <Sparkles className="w-4 h-4 text-emerald-600 shrink-0" />
+          <div className="inline-flex items-center gap-2.5 px-5 sm:px-6 py-2.5 rounded-full bg-[#E0F2FE] text-[#0C4A9E] border border-[#BAE6FD] font-medium text-xs sm:text-sm shadow-2xs">
+            <Sparkles className="w-4 h-4 text-[#00A3E0] shrink-0" />
             <span className="font-sans font-bold">Karier Alumni</span>
-            <span className="text-slate-400">·</span>
+            <span className="text-[#00A3E0]">·</span>
             <span>Dari Kampus Pelita Bangsa Menembus Panggung Profesional</span>
           </div>
         </div>
@@ -53,14 +54,12 @@ export const AlumniStoriesSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-6">
             {/* Indeks Counter & Badge */}
             <div className="flex items-center gap-3">
-              <span className="text-xs font-mono font-bold tracking-widest text-slate-500 uppercase">
-                {String(currentIndex + 1).padStart(2, '0')} / {String(mockAlumniStories.length).padStart(2, '0')}
-              </span>
+              <SectionTag label="Kisah Alumni Sukses" />
               <DummyBadge label="Data contoh alumni" />
             </div>
 
             {/* Headline Editorial Besar */}
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold text-navy-950 tracking-tight leading-[1.08]">
+            <h2 className="font-sans text-3xl sm:text-5xl font-extrabold text-[#071E4A] tracking-tight leading-[1.08]">
               {current.headline || 'Membuka Peluang Karier Unggul di Dunia Industri'}
             </h2>
 
@@ -70,14 +69,14 @@ export const AlumniStoriesSection: React.FC = () => {
             </p>
 
             {/* Identitas Alumni & Link Profil */}
-            <div className="pt-2 border-t border-[#E8E5DD] space-y-1">
-              <span className="font-sans font-bold text-navy-950 text-base sm:text-lg block">
+            <div className="pt-2 border-t border-[#E0EDFD] space-y-1">
+              <span className="font-sans font-bold text-[#071E4A] text-base sm:text-lg block">
                 {current.nama}
               </span>
-              <span className="text-xs sm:text-sm font-mono text-slate-500 block">
+              <span className="text-xs sm:text-sm font-sans text-slate-500 block">
                 {current.jabatan} di {current.perusahaan}
               </span>
-              <span className="text-xs font-mono text-emerald-700 font-semibold block pt-0.5">
+              <span className="text-xs font-sans text-[#00A3E0] font-semibold block pt-0.5">
                 {current.prodi} · {current.angkatan}
               </span>
             </div>
@@ -85,15 +84,15 @@ export const AlumniStoriesSection: React.FC = () => {
             <div className="pt-2">
               <a
                 href="#tracer-study"
-                className="inline-flex items-center gap-2 text-sm font-bold text-navy-950 hover:text-emerald-700 transition-colors group"
+                className="inline-flex items-center gap-2 text-sm font-bold text-[#071E4A] hover:text-[#0C4A9E] transition-colors group"
               >
                 <span>Pelajari rekam jejak lulusan lainnya</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-[#00A3E0]" />
               </a>
             </div>
 
             {/* Pagination Dots & Navigation Buttons Ala Gusto */}
-            <div className="pt-6 border-t border-[#E8E5DD] flex items-center justify-between gap-6">
+            <div className="pt-6 border-t border-[#E0EDFD] flex items-center justify-between gap-6">
               {/* Pagination Dots */}
               <div className="flex items-center gap-2">
                 {mockAlumniStories.map((_, idx) => (
@@ -104,8 +103,8 @@ export const AlumniStoriesSection: React.FC = () => {
                     aria-label={`Buka cerita alumni ke ${idx + 1}`}
                     className={`h-2 rounded-full transition-all duration-300 ${
                       currentIndex === idx
-                        ? 'w-8 bg-navy-950'
-                        : 'w-2 bg-slate-300 hover:bg-slate-400'
+                        ? 'w-8 bg-[#0C4A9E]'
+                        : 'w-2 bg-slate-200 hover:bg-[#BAE6FD]'
                     }`}
                   />
                 ))}
@@ -116,7 +115,7 @@ export const AlumniStoriesSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="w-12 h-12 rounded-full border border-slate-300 hover:border-navy-950 hover:bg-navy-950 hover:text-white flex items-center justify-center text-slate-800 transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950"
+                  className="w-12 h-12 rounded-full border border-slate-200 hover:border-[#0C4A9E] hover:bg-[#0C4A9E] hover:text-white flex items-center justify-center text-slate-800 transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00A3E0]"
                   aria-label="Cerita alumni sebelumnya"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -124,7 +123,7 @@ export const AlumniStoriesSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="w-12 h-12 rounded-full border border-slate-300 hover:border-navy-950 hover:bg-navy-950 hover:text-white flex items-center justify-center text-slate-800 transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950"
+                  className="w-12 h-12 rounded-full border border-slate-200 hover:border-[#0C4A9E] hover:bg-[#0C4A9E] hover:text-white flex items-center justify-center text-slate-800 transition-colors shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00A3E0]"
                   aria-label="Cerita alumni berikutnya"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -135,9 +134,9 @@ export const AlumniStoriesSection: React.FC = () => {
 
           {/* Kolom Kanan: Kartu Profil Mengambang & Ilustrasi Ala Gusto (6 Kolom Desktop) */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl bg-white border border-[#E8E5DD] p-6 sm:p-8 shadow-sm overflow-hidden flex flex-col justify-between min-h-[460px]">
+            <div className="relative rounded-3xl bg-gradient-to-br from-white to-[#F0F7FF]/50 border border-[#BAE6FD] p-6 sm:p-8 shadow-[0_20px_50px_rgba(12,74,158,0.06)] overflow-hidden flex flex-col justify-between min-h-[460px]">
               {/* Kartu Status Mengambang (Persis Screenshot 3 Gusto) */}
-              <div className="relative z-20 max-w-[280px] sm:max-w-xs p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-slate-200/90 space-y-3">
+              <div className="relative z-20 max-w-[280px] sm:max-w-xs p-4 sm:p-5 rounded-2xl bg-white/95 backdrop-blur-md shadow-lg border border-[#BAE6FD] space-y-3">
                 <div className="flex items-center gap-3">
                   <img
                     src={current.avatar_url || '/images/alumni_engineer.jpg'}
@@ -145,24 +144,24 @@ export const AlumniStoriesSection: React.FC = () => {
                     className="w-11 h-11 rounded-full object-cover border border-slate-200 shadow-2xs shrink-0"
                   />
                   <div className="min-w-0">
-                    <span className="text-xs sm:text-sm font-bold text-navy-950 block truncate">
+                    <span className="text-xs sm:text-sm font-bold text-[#071E4A] block truncate">
                       {current.nama}
                     </span>
-                    <span className="text-[10px] text-slate-500 font-mono block truncate">
+                    <span className="text-[10px] text-slate-500 font-sans block truncate">
                       {current.perusahaan}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-3 rounded-xl bg-[#FAF9F5] border border-slate-200/80 space-y-1">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
+                <div className="p-3 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD] space-y-1">
+                  <span className="text-[10px] font-sans uppercase tracking-wider text-[#0C4A9E] font-bold block">
                     {current.metric_label || 'WAKTU TUNGGU KERJA'}
                   </span>
-                  <span className="font-serif text-2xl font-bold text-navy-950 block">
+                  <span className="font-sans text-2xl font-extrabold text-[#071E4A] block">
                     {current.metric || '1.5 Bulan'}
                   </span>
-                  <div className="flex items-center gap-1.5 text-[10px] text-emerald-700 font-medium pt-0.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-[10px] text-[#0C4A9E] font-medium pt-0.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-[#00A3E0]" />
                     <span>Terverifikasi Kurasi CDC</span>
                   </div>
                 </div>

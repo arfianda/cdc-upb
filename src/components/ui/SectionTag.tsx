@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface SectionTagProps {
-  number: string;
+  number?: string;
   label: string;
   light?: boolean;
   dark?: boolean;
@@ -9,22 +9,21 @@ interface SectionTagProps {
 }
 
 export const SectionTag: React.FC<SectionTagProps> = ({
-  number,
   label,
   light = true,
   dark = false,
   className = '',
 }) => {
   const isDarkCanvas = dark || (!light && dark);
-  const colorClass = isDarkCanvas ? 'text-blue-300' : 'text-blue-700';
+  const dotClass = isDarkCanvas ? 'bg-[#38BDF8]' : 'bg-[#00A3E0]';
+  const labelClass = isDarkCanvas ? 'text-white/90' : 'text-[#071E4A]';
 
   return (
     <div
-      className={`inline-flex items-center gap-2.5 text-xs font-semibold tracking-[0.18em] uppercase ${colorClass} ${className}`}
+      className={`inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase font-sans ${labelClass} ${className}`}
     >
-      <span className="font-mono text-[11px] opacity-75">{number}</span>
-      <span className="opacity-40">/</span>
-      <span className="text-navy-950/80 tracking-widest">{label}</span>
+      <span className={`w-1.5 h-1.5 rounded-full ${dotClass}`} />
+      <span>{label}</span>
     </div>
   );
 };

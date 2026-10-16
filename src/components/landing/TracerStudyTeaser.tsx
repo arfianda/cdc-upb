@@ -51,62 +51,62 @@ export const TracerStudyTeaser: React.FC = () => {
     <section
       ref={containerRef}
       id="tracer-study"
-      className="relative py-24 sm:py-32 bg-[#FAF9F5] text-slate-900 overflow-hidden border-b border-[#E8E5DD]"
+      className="relative py-24 sm:py-32 bg-gradient-to-b from-white via-[#F0F7FF] to-white text-slate-900 overflow-hidden border-b border-[#E0EDFD]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 1. Accolades & Social Proof Bar di Puncak (Persis Referensi Gusto) */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pb-16 sm:pb-20 border-b border-[#E8E5DD]/80 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pb-16 sm:pb-20 border-b border-[#E0EDFD] items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 text-slate-800">
-              <Award className="w-5 h-5 text-navy-950" />
+            <div className="w-10 h-10 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD] flex items-center justify-center shrink-0 text-[#0C4A9E]">
+              <Award className="w-5 h-5 text-[#0C4A9E]" />
             </div>
             <div>
-              <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
+              <span className="block text-[11px] font-sans font-bold uppercase tracking-wider text-[#0C4A9E]">
                 KEMDIKBUDRISTEK
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-tight block">
+              <span className="text-xs sm:text-sm font-semibold text-[#071E4A] leading-tight block">
                 Standar Pelaporan Mutu Resmi
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 text-slate-800">
-              <TrendingUp className="w-5 h-5 text-emerald-600" />
+            <div className="w-10 h-10 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD] flex items-center justify-center shrink-0 text-[#00A3E0]">
+              <TrendingUp className="w-5 h-5 text-[#00A3E0]" />
             </div>
             <div>
-              <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
+              <span className="block text-[11px] font-sans font-bold uppercase tracking-wider text-[#0C4A9E]">
                 RELEVANSI 89.1%
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-tight block">
+              <span className="text-xs sm:text-sm font-semibold text-[#071E4A] leading-tight block">
                 Sesuai Kebutuhan Industri
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 text-slate-800">
-              <Clock className="w-5 h-5 text-blue-600" />
+            <div className="w-10 h-10 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD] flex items-center justify-center shrink-0 text-[#0C4A9E]">
+              <Clock className="w-5 h-5 text-[#0C4A9E]" />
             </div>
             <div>
-              <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
+              <span className="block text-[11px] font-sans font-bold uppercase tracking-wider text-[#0C4A9E]">
                 WAKTU TUNGGU
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-tight block">
+              <span className="text-xs sm:text-sm font-semibold text-[#071E4A] leading-tight block">
                 Rata-rata 2.7 Bulan Kerja
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center shrink-0 text-slate-800">
-              <Building2 className="w-5 h-5 text-amber-600" />
+            <div className="w-10 h-10 rounded-xl bg-[#F0F7FF] border border-[#BAE6FD] flex items-center justify-center shrink-0 text-[#00A3E0]">
+              <Building2 className="w-5 h-5 text-[#00A3E0]" />
             </div>
             <div>
-              <span className="block text-[11px] font-mono font-bold uppercase tracking-wider text-slate-500">
+              <span className="block text-[11px] font-sans font-bold uppercase tracking-wider text-[#0C4A9E]">
                 JARINGAN KAWASAN
               </span>
-              <span className="text-xs sm:text-sm font-semibold text-slate-900 leading-tight block">
+              <span className="text-xs sm:text-sm font-semibold text-[#071E4A] leading-tight block">
                 350+ Korporasi Terintegrasi
               </span>
             </div>
@@ -169,7 +169,7 @@ export const TracerStudyTeaser: React.FC = () => {
 
           {/* Konten Utama Headline Raksasa Gusto Style */}
           <div className="relative z-20 max-w-4xl mx-auto px-4 py-8">
-            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-mono uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 mb-4 px-3.5 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-sans font-semibold uppercase tracking-wide">
               <span>Tracer Study Resmi 2024</span>
               <DummyBadge label="Data contoh tracer" />
             </div>
@@ -196,12 +196,12 @@ export const TracerStudyTeaser: React.FC = () => {
                 alt="Alumni UPB"
                 className="w-11 h-11 rounded-full object-cover border-2 border-white shadow-sm"
               />
-              <span className="w-11 h-11 rounded-full bg-navy-950 text-white font-mono text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-sm">
+              <span className="w-11 h-11 rounded-full bg-[#0C4A9E] text-white font-sans text-[10px] font-bold flex items-center justify-center border-2 border-white shadow-sm">
                 +1.2k
               </span>
             </div>
 
-            <h2 className="font-serif text-4xl sm:text-6xl lg:text-[80px] font-bold text-navy-950 tracking-tight leading-[1.04]">
+            <h2 className="font-sans text-4xl sm:text-6xl lg:text-[76px] font-extrabold text-[#071E4A] tracking-tight leading-[1.04]">
               1,248+ alumni memimpin masa depan industri.
             </h2>
 
@@ -213,12 +213,8 @@ export const TracerStudyTeaser: React.FC = () => {
             {/* Tombol Tindakan dengan href ke Tracer Study sesuai Permintaan Pengguna */}
             <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="#tracer-study"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setModalOpen(true);
-                }}
-                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#114B3A] hover:bg-[#0D382B] text-white font-bold text-sm sm:text-base transition-transform hover:scale-105 active:scale-95 shadow-md"
+                href="/tracer-study"
+                className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#0C4A9E] to-[#00A3E0] hover:from-[#093B80] hover:to-[#008FC5] text-white font-bold text-sm sm:text-base transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-500/25"
               >
                 <span>Isi Kuesioner Tracer Study</span>
                 <ArrowUpRight className="w-5 h-5" />
@@ -227,7 +223,7 @@ export const TracerStudyTeaser: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setShowDetails(!showDetails)}
-                className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 transition-colors shadow-2xs"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white hover:bg-[#F0F7FF] text-[#071E4A] font-semibold text-sm border border-[#BAE6FD] hover:border-[#0C4A9E] transition-all shadow-2xs"
                 aria-expanded={showDetails}
               >
                 <span>{showDetails ? 'Tutup Rincian Data' : 'Lihat Rincian Statistik'}</span>
@@ -245,7 +241,7 @@ export const TracerStudyTeaser: React.FC = () => {
               <div className="lg:col-span-7 p-7 sm:p-9 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-7">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                   <div>
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 block">
+                    <span className="text-xs font-sans font-bold uppercase tracking-wider text-slate-400 block">
                       DISTRIBUSI BIDANG KERJA
                     </span>
                     <h3 className="font-serif text-2xl font-bold text-navy-950 mt-1">
@@ -261,8 +257,8 @@ export const TracerStudyTeaser: React.FC = () => {
                   {mockTracerStats.distribusi_sektor.map((sektor, idx) => (
                     <div key={idx} className="space-y-1.5">
                       <div className="flex items-center justify-between text-xs sm:text-sm font-medium">
-                        <span className="text-slate-800">{sektor.nama}</span>
-                        <span className="font-mono font-bold text-navy-950 tabular-nums">
+                        <span className="text-slate-800 font-sans">{sektor.nama}</span>
+                        <span className="font-sans font-bold text-navy-950 tabular-nums">
                           {sektor.persentase}%
                         </span>
                       </div>
@@ -277,7 +273,7 @@ export const TracerStudyTeaser: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-sans">
                   <span>Basis Responden: {mockTracerStats.total_responden} Lulusan</span>
                   <span className="inline-flex items-center gap-1 text-slate-600">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
@@ -290,7 +286,7 @@ export const TracerStudyTeaser: React.FC = () => {
               <div className="lg:col-span-5 space-y-6">
                 <div className="p-7 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-5">
                   <div className="border-b border-slate-100 pb-3">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 block">
+                    <span className="text-xs font-sans font-bold uppercase tracking-wider text-slate-400 block">
                       STATUS 6 BULAN PASCA KELULUSAN
                     </span>
                     <h4 className="font-serif text-xl font-bold text-navy-950 mt-1">
@@ -299,8 +295,8 @@ export const TracerStudyTeaser: React.FC = () => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-3.5">
-                    <div className="p-4 rounded-2xl bg-[#FAF9F5] border border-slate-200/80">
-                      <span className="font-serif text-3xl font-bold text-navy-950 tabular-nums block">
+                    <div className="p-4 rounded-2xl bg-[#F0F7FF] border border-[#BAE6FD]">
+                      <span className="font-sans text-3xl font-extrabold text-[#071E4A] tabular-nums block">
                         {mockTracerStats.persentase_bekerja}%
                       </span>
                       <span className="text-xs font-sans font-medium text-slate-600 mt-1 block">
@@ -308,8 +304,8 @@ export const TracerStudyTeaser: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-[#FAF9F5] border border-slate-200/80">
-                      <span className="font-serif text-3xl font-bold text-navy-950 tabular-nums block">
+                    <div className="p-4 rounded-2xl bg-[#F0F7FF] border border-[#BAE6FD]">
+                      <span className="font-sans text-3xl font-extrabold text-[#071E4A] tabular-nums block">
                         {mockTracerStats.persentase_wirausaha}%
                       </span>
                       <span className="text-xs font-sans font-medium text-slate-600 mt-1 block">
@@ -317,8 +313,8 @@ export const TracerStudyTeaser: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-[#FAF9F5] border border-slate-200/80">
-                      <span className="font-serif text-3xl font-bold text-navy-950 tabular-nums block">
+                    <div className="p-4 rounded-2xl bg-[#F0F7FF] border border-[#BAE6FD]">
+                      <span className="font-sans text-3xl font-extrabold text-[#071E4A] tabular-nums block">
                         {mockTracerStats.persentase_studi_lanjut}%
                       </span>
                       <span className="text-xs font-sans font-medium text-slate-600 mt-1 block">
@@ -326,8 +322,8 @@ export const TracerStudyTeaser: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-[#FAF9F5] border border-slate-200/80">
-                      <span className="font-serif text-3xl font-bold text-navy-950 tabular-nums block">
+                    <div className="p-4 rounded-2xl bg-[#F0F7FF] border border-[#BAE6FD]">
+                      <span className="font-sans text-3xl font-extrabold text-[#071E4A] tabular-nums block">
                         {mockTracerStats.persentase_mencari_kerja}%
                       </span>
                       <span className="text-xs font-sans font-medium text-slate-600 mt-1 block">
@@ -338,13 +334,13 @@ export const TracerStudyTeaser: React.FC = () => {
                 </div>
 
                 {/* Kartu Relevansi Pendidikan */}
-                <div className="p-7 rounded-3xl bg-navy-950 text-white space-y-3 relative overflow-hidden shadow-lg border border-navy-900">
-                  <span className="text-xs font-mono uppercase tracking-widest text-emerald-400 block">
+                <div className="p-7 rounded-3xl bg-[#071E4A] text-white space-y-3 relative overflow-hidden shadow-lg border border-[#0C4A9E]/40">
+                  <span className="text-xs font-sans uppercase tracking-wider text-[#00A3E0] block font-bold">
                     RELEVANSI PENDIDIKAN
                   </span>
 
                   <div className="flex items-baseline gap-2">
-                    <span className="font-serif text-4xl sm:text-5xl font-bold text-white tabular-nums">
+                    <span className="font-sans text-4xl sm:text-5xl font-extrabold text-white tabular-nums">
                       {mockTracerStats.kesesuaian_bidang_persen}%
                     </span>
                     <span className="text-xs text-slate-300 font-sans">
@@ -376,7 +372,7 @@ export const TracerStudyTeaser: React.FC = () => {
           >
             <div className="flex items-start justify-between">
               <div>
-                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 block mb-1">
+                <span className="text-xs font-sans font-bold uppercase tracking-wider text-emerald-700 block mb-1">
                   INSTRUMEN TRACER STUDY RESMI
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-navy-950">

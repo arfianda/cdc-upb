@@ -4,12 +4,15 @@ import { LandingPage } from './pages/LandingPage';
 import { HeroVariantA } from './pages/HeroVariantA';
 import { HeroVariantB } from './pages/HeroVariantB';
 
+import { TracerStudyPage } from './pages/TracerStudyPage';
+
 function App() {
   return (
     <BrowserRouter>
       <SmoothScrollProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/tracer-study" element={<TracerStudyPage />} />
           <Route path="/hero-a" element={<HeroVariantA />} />
           <Route path="/hero-b" element={<HeroVariantB />} />
           {/* Fallback ke LandingPage untuk SPA */}

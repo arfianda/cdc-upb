@@ -91,7 +91,7 @@ export const ImpactStatsBand: React.FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-24 bg-[#F8FAFC] text-slate-900 overflow-hidden border-y border-slate-200/80"
+      className="relative py-24 bg-gradient-to-b from-[#F0F7FF] via-[#F8FAFC] to-[#F0F7FF] text-slate-900 overflow-hidden border-y border-[#E0EDFD]"
     >
       <div className="absolute inset-0 bg-grain pointer-events-none" />
 
@@ -99,10 +99,10 @@ export const ImpactStatsBand: React.FC = () => {
         {/* Header Band */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-16">
           <div className="flex items-center gap-3">
-            <SectionTag number="02" label="Kinerja & Dampak Institusional" />
+            <SectionTag label="Kinerja & Dampak Institusional" />
             <DummyBadge label="Data contoh metrik" />
           </div>
-          <span className="text-xs font-mono text-slate-500 uppercase tracking-widest">
+          <span className="text-xs font-sans text-[#0C4A9E] font-bold uppercase tracking-wider">
             Audit Mutu & Tracer Study Lulusan UPB 2024
           </span>
         </div>
@@ -110,8 +110,8 @@ export const ImpactStatsBand: React.FC = () => {
         {/* 4 Metrics Grid dengan Garis Hairline Arsitektural */}
         <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
           {/* Hairline Divider Horizontal di Desktop */}
-          <div className="stat-hairline-h absolute top-0 left-0 right-0 h-[1px] bg-slate-200/90 origin-left hidden lg:block" />
-          <div className="stat-hairline-h absolute bottom-0 left-0 right-0 h-[1px] bg-slate-200/90 origin-left hidden lg:block" />
+          <div className="stat-hairline-h absolute top-0 left-0 right-0 h-[1px] bg-[#BAE6FD]/80 origin-left hidden lg:block" />
+          <div className="stat-hairline-h absolute bottom-0 left-0 right-0 h-[1px] bg-[#BAE6FD]/80 origin-left hidden lg:block" />
 
           {impactMetrics.map((item, index) => {
             const displayVal =
@@ -123,30 +123,27 @@ export const ImpactStatsBand: React.FC = () => {
               <div
                 key={item.id}
                 className={`relative lg:px-8 py-8 flex flex-col justify-between space-y-6 ${
-                  index !== 0 ? 'lg:border-l lg:border-slate-200/70' : ''
+                  index !== 0 ? 'lg:border-l lg:border-[#BAE6FD]/60' : ''
                 }`}
               >
                 {/* Hairline Vertikal Animasi */}
                 {index !== 0 && (
-                  <div className="stat-hairline-v absolute top-0 bottom-0 left-0 w-[1px] bg-slate-200/90 origin-top hidden lg:block" />
+                  <div className="stat-hairline-v absolute top-0 bottom-0 left-0 w-[1px] bg-[#BAE6FD]/80 origin-top hidden lg:block" />
                 )}
 
                 <div className="space-y-2">
-                  <span className="text-xs font-mono font-medium uppercase tracking-[0.15em] text-blue-700 block">
-                    0{index + 1} / METRIK
-                  </span>
                   <div className="flex items-baseline gap-1">
-                    <span className="font-serif text-5xl sm:text-6xl font-bold tracking-tight text-navy-950 tabular-nums">
+                    <span className="font-sans text-5xl sm:text-6xl font-black tracking-tight text-[#071E4A] tabular-nums">
                       {displayVal}
                     </span>
-                    <span className="font-serif italic text-3xl sm:text-4xl text-blue-700 font-bold">
+                    <span className="font-sans text-3xl sm:text-4xl text-[#00A3E0] font-black">
                       {item.unit}
                     </span>
                   </div>
                 </div>
 
-                <div className="space-y-1.5 pt-4 border-t border-slate-200/60">
-                  <h4 className="text-sm font-semibold text-slate-900 font-sans">
+                <div className="space-y-1.5 pt-4 border-t border-[#E0EDFD]">
+                  <h4 className="text-sm font-semibold text-[#071E4A] font-sans">
                     {item.label}
                   </h4>
                   <p className="text-xs text-slate-500 leading-relaxed font-sans">

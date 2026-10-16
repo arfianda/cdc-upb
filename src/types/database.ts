@@ -118,6 +118,10 @@ export interface PartnerCompany {
   nama: string;
   kategori: string;
   kawasan: string; // misal: 'Kawasan Industri GIIC Cikarang'
+  deskripsi?: string;
+  icon_type?: string;
+  tag?: string;
+  singkatan?: string;
   logo_svg?: string;
   isDummy?: boolean;
 }

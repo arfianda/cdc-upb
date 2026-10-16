@@ -43,7 +43,7 @@ export const PlaceholderImage: React.FC<PlaceholderImageProps> = ({
       {/* Siluet geometris kampus modern */}
       <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
         <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-950/80 border border-blue-400/30 text-blue-300 text-xs font-mono font-medium tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-navy-950/80 border border-blue-400/30 text-blue-300 text-xs font-sans font-semibold tracking-wide uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
             {badgeText}
           </div>

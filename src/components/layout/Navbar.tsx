@@ -58,31 +58,33 @@ export const Navbar: React.FC = () => {
         aria-hidden="true"
       >
         <div
-          className="h-full bg-navy-950 transition-all duration-75 ease-out"
+          className="h-full bg-gradient-to-r from-[#0C4A9E] to-[#00A3E0] transition-all duration-75 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out bg-[#FAF9F5]/90 backdrop-blur-md border-b border-[#E8E5DD] shadow-[0_2px_15px_rgba(4,11,31,0.02)] py-3.5 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ease-in-out bg-white/95 backdrop-blur-md border-b border-[#E0EDFD] shadow-[0_2px_15px_rgba(12,74,158,0.04)] py-3.5 ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo & Brand Identity dengan Aksen Biru Dongker */}
+            {/* Logo & Brand Identity dengan Aksen Biru Resmi CDC */}
             <a
               href="/"
-              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy-950 rounded-md"
+              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00A3E0] rounded-md"
             >
-              <div className="w-9 h-9 rounded-xl bg-navy-950 border border-navy-900 flex items-center justify-center shadow-xs">
-                <span className="font-serif italic font-bold text-lg text-white">C</span>
-              </div>
+              <img
+                src="/images/logo_cdc_upb.png"
+                alt="Logo Resmi CDC Pelita Bangsa"
+                className="w-11 h-11 sm:w-12 sm:h-12 object-contain drop-shadow-xs group-hover:scale-105 transition-transform"
+              />
               <div className="flex flex-col">
-                <span className="font-serif text-lg tracking-tight text-navy-950 font-bold group-hover:text-blue-700 transition-colors">
+                <span className="font-sans text-base sm:text-lg tracking-tight text-[#071E4A] font-extrabold group-hover:text-[#0C4A9E] transition-colors leading-tight">
                   CDC Pelita Bangsa
                 </span>
-                <span className="text-[10px] uppercase font-mono tracking-[0.16em] text-slate-500">
+                <span className="text-[10px] uppercase font-sans tracking-wider text-[#0C4A9E]/75 font-bold">
                   Career Development Center
                 </span>
               </div>
@@ -94,24 +96,24 @@ export const Navbar: React.FC = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="relative text-sm font-medium text-slate-700 hover:text-navy-950 transition-colors duration-200 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-navy-950 hover:after:w-full after:transition-all after:duration-300"
+                  className="relative text-sm font-medium text-slate-700 hover:text-[#0C4A9E] transition-colors duration-200 py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1.5px] after:bg-[#00A3E0] hover:after:w-full after:transition-all after:duration-300"
                 >
                   {link.label}
                 </a>
               ))}
             </nav>
 
-            {/* Desktop Action Buttons (Heyo Style Accent Pill) */}
+            {/* Desktop Action Buttons (CDC Blue Accent Pill) */}
             <div className="hidden md:flex items-center gap-3">
               <a
-                href="#tracer-study"
-                className="text-xs font-semibold tracking-wider uppercase text-slate-700 hover:text-navy-950 px-3 py-2 transition-colors"
+                href="/tracer-study"
+                className="text-xs font-semibold tracking-wider uppercase text-[#071E4A] hover:text-[#0C4A9E] px-3 py-2 transition-colors"
               >
                 Tracer Study
               </a>
               <a
                 href="#lowongan"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-[#FFDE00] text-slate-950 font-semibold text-xs tracking-wide hover:bg-[#F0CF00] transition-all hover:scale-105 active:scale-95 shadow-xs"
+                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#0C4A9E] to-[#00A3E0] hover:from-[#093B80] hover:to-[#008FC5] text-white font-semibold text-xs tracking-wide transition-all hover:scale-105 active:scale-95 shadow-md shadow-blue-500/20"
               >
                 <span>Cari Lowongan</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -147,7 +149,7 @@ export const Navbar: React.FC = () => {
               ))}
               <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
                 <a
-                  href="#tracer-study"
+                  href="/tracer-study"
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-center py-2.5 text-sm font-medium text-slate-700 hover:text-navy-950 rounded-lg bg-slate-100"
                 >

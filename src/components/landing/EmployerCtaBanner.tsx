@@ -21,17 +21,17 @@ export const EmployerCtaBanner: React.FC = () => {
   };
 
   return (
-    <section className="relative py-28 bg-white text-slate-900 overflow-hidden border-b border-slate-200/80">
+    <section className="relative py-28 bg-white text-slate-900 overflow-hidden border-b border-[#E0EDFD]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-navy-950 text-white p-10 sm:p-16 lg:p-20 overflow-hidden shadow-[0_25px_60px_rgba(4,11,31,0.25)] border border-navy-900">
-          {/* Radial Ambient Accent */}
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="relative rounded-3xl bg-[#071E4A] text-white p-10 sm:p-16 lg:p-20 overflow-hidden shadow-[0_25px_60px_rgba(7,30,74,0.25)] border border-[#0C4A9E]/40">
+          {/* Radial Ambient Accent Cyan & Blue */}
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00A3E0]/20 rounded-full blur-[140px] pointer-events-none" />
           <div className="absolute inset-0 bg-grain pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl space-y-8">
-            <SectionTag number="06" label="Kemitraan Industri" dark />
+            <SectionTag label="Kemitraan Industri" dark />
 
-            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
               Bermitra dengan CDC UPB untuk Menjaring Talenta Siap Kerja
             </h2>
 
@@ -43,15 +43,15 @@ export const EmployerCtaBanner: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#38BDF8] shrink-0" />
                 <span>Verifikasi Legalitas Cepat</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#38BDF8] shrink-0" />
                 <span>Publikasi Multi Kanal</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#38BDF8] shrink-0" />
                 <span>Tanpa Biaya Layanan Dasar</span>
               </div>
             </div>
@@ -59,11 +59,11 @@ export const EmployerCtaBanner: React.FC = () => {
             <div className="pt-4 flex flex-wrap items-center gap-4">
               <MagneticButton
                 size="lg"
-                className="bg-white text-navy-950 hover:bg-slate-100 shadow-md border-0"
+                className="bg-white text-[#071E4A] hover:bg-[#F0F7FF] shadow-md border-0"
                 onClick={() => setModalOpen(true)}
               >
                 <span>Daftarkan Perusahaan Mitra</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 text-[#00A3E0]" />
               </MagneticButton>
 
               <MagneticButton
@@ -92,10 +92,10 @@ export const EmployerCtaBanner: React.FC = () => {
           >
             <div className="flex items-start justify-between">
               <div>
-                <span className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-700 block mb-1">
+                <span className="text-xs font-sans font-bold uppercase tracking-wider text-blue-700 block mb-1">
                   KEMITRAAN INDUSTRI RESMI
                 </span>
-                <h3 className="font-serif text-2xl font-bold text-navy-950">
+                <h3 className="font-sans text-2xl font-bold tracking-tight text-navy-950">
                   Formulir Kemitraan Rekrutmen
                 </h3>
               </div>

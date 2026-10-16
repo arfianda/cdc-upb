@@ -35,7 +35,7 @@ export const HeroVariantA: React.FC = () => {
       <section className="relative pt-36 pb-24 overflow-hidden border-b border-slate-100">
         <div className="max-w-[1240px] mx-auto px-6 sm:px-8 lg:px-12">
           {/* Tag Penanda Varian untuk Pengujian */}
-          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-mono">
+          <div className="mb-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-sans font-semibold">
             <span className="font-bold">VARIAN A</span>
             <span>·</span>
             <span>Prinsip White Clean Focus (Gaya Referensi SquareDash)</span>
@@ -112,7 +112,7 @@ export const HeroVariantA: React.FC = () => {
                       <span className="text-xs font-semibold text-slate-900 block">
                         Radar Lowongan Aktif
                       </span>
-                      <span className="text-[10px] font-mono text-slate-500">
+                      <span className="text-[10px] font-sans text-slate-500">
                         Sinkronisasi Terkurasi UPB
                       </span>
                     </div>
@@ -144,7 +144,7 @@ export const HeroVariantA: React.FC = () => {
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="flex items-center gap-2">
-                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium bg-blue-50 text-blue-700">
+                        <span className="px-2.5 py-0.5 rounded-full text-[11px] font-sans font-medium bg-blue-50 text-blue-700">
                           {currentJob.tipe}
                         </span>
                         <span className="text-xs text-slate-500 font-medium">
@@ -170,7 +170,7 @@ export const HeroVariantA: React.FC = () => {
                   </p>
 
                   <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                    <span className="font-mono font-semibold text-slate-900">
+                    <span className="font-sans font-bold text-slate-900">
                       {currentJob.gaji_display}
                     </span>
                     <a
@@ -187,7 +187,7 @@ export const HeroVariantA: React.FC = () => {
 
                 {/* Daftar Selector Cepat Antar Lowongan Fungsional */}
                 <div className="pt-4 space-y-2">
-                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-400 block">
+                  <span className="text-[10px] font-sans font-bold uppercase tracking-wider text-slate-400 block">
                     PILIH POSISI UNTUK MEMERIKSA RINCIAN:
                   </span>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
